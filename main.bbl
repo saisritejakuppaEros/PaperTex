@@ -14,6 +14,11 @@ Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
   X., Zheng, B., Zhong, H., Zhou, J., Zhou, F., Zhou, J., Zhu, Y., Zhu, K.:
   {Qwen3-VL} technical report. arXiv preprint arXiv:2511.21631  (2025)
 
+\bibitem{dalva2025canvastoimage}
+Dalva, Y., Qian, G.G., Goldenberg, M., Chen, T.S., Aberman, K., Tulyakov, S.,
+  Yanardag, P., Wang, K.C.J.: Canvas-to-image: Compositional image generation
+  with multimodal controls (2025), \url{https://arxiv.org/abs/2511.21691}
+
 \bibitem{feng2024layoutgpt}
 Feng, W., Zhu, W., Fu, T.j., Jampani, V., Ganin, Y., Yang, X.E., Wang, W.Y.:
   {LayoutGPT}: Compositional visual planning and generation with large language
