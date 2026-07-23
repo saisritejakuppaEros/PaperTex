@@ -1,0 +1,135 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{qwen3vl}
+Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
+  Gao, C., Ge, C., Ge, W., Guo, Z., Huang, Q., Huang, J., Huang, F., Hui, B.,
+  Jiang, S., Li, Z., Li, M., Li, M., Li, K., Lin, Z., Lin, J., Liu, X., Liu,
+  J., Liu, C., Liu, Y., Liu, D., Liu, S., Lu, D., Luo, R., Lv, C., Men, R.,
+  Meng, L., Ren, X., Ren, X., Song, S., Sun, Y., Tang, J., Tu, J., Wan, J.,
+  Wang, P., Wang, P., Wang, Q., Wang, Y., Xie, T., Xu, Y., Xu, H., Xu, J.,
+  Yang, Z., Yang, M., Yang, J., Yang, A., Yu, B., Zhang, F., Zhang, H., Zhang,
+  X., Zheng, B., Zhong, H., Zhou, J., Zhou, F., Zhou, J., Zhu, Y., Zhu, K.:
+  {Qwen3-VL} technical report. arXiv preprint arXiv:2511.21631  (2025)
+
+\bibitem{feng2024layoutgpt}
+Feng, W., Zhu, W., Fu, T.j., Jampani, V., Ganin, Y., Yang, X.E., Wang, W.Y.:
+  {LayoutGPT}: Compositional visual planning and generation with large language
+  models. In: Advances in Neural Information Processing Systems (2024)
+
+\bibitem{he2025dreamo}
+He, Y., et~al.: {DreamO}: Unified image customization with conditions
+  orthogonalization. arXiv preprint arXiv:2504.16395  (2025)
+
+\bibitem{hertz2022prompt}
+Hertz, A., Mokady, R., Tenenbaum, J., Aberman, K., Pritch, Y., Cohen-Or, D.:
+  Prompt-to-prompt image editing with cross attention control. In:
+  International Conference on Learning Representations (2023)
+
+\bibitem{hu2022lora}
+Hu, E.J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L.,
+  Chen, W.: {LoRA}: Low-rank adaptation of large language models. International
+  Conference on Learning Representations  (2022)
+
+\bibitem{kumari2023multiconcept}
+Kumari, N., Zhang, B., Zhang, R., Shechtman, E., Zhu, J.Y.: Multi-concept
+  customization of text-to-image diffusion. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition. pp. 1931--1941 (2023)
+
+\bibitem{li2023gligen}
+Li, Y., Liu, H., Wu, Q., Mu, F., Yang, J., Gao, J., Li, C., Lee, Y.J.:
+  {GLIGEN}: Open-set grounded text-to-image generation. In: Proceedings of the
+  IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp.
+  22511--22521 (2023)
+
+\bibitem{li2024photomaker}
+Li, Z., Cao, M., Wang, X., Qi, Z., Cheng, M.M., Shan, Y.: {PhotoMaker}:
+  Customizing realistic human photos via stacked id embedding. arXiv preprint
+  arXiv:2312.04461  (2024)
+
+\bibitem{lian2023layoutdiffusion}
+Lian, L., Li, B., Yala, A., Darrell, T.: Llm-grounded diffusion: Enhancing
+  prompt understanding of text-to-image diffusion models with large language
+  models. arXiv preprint arXiv:2305.13655  (2023)
+
+\bibitem{depthanything3}
+Lin, H., Chen, S., Liew, J.H., Chen, D.Y., Li, Z., Shi, G., Feng, J., Kang, B.:
+  Depth anything 3: Recovering the visual space from any views. arXiv preprint
+  arXiv:2511.10647  (2025)
+
+\bibitem{liu2023grounding}
+Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Li, C., Yang, J., Su,
+  H., Zhu, J., et~al.: Grounding {DINO}: Marrying {DINO} with grounded
+  pre-training for open-set object detection. arXiv preprint arXiv:2303.05499
+  (2023)
+
+\bibitem{mokady2023null}
+Mokady, R., Hertz, A., Aberman, K., Pritch, Y., Cohen-Or, D.: Null-text
+  inversion for editing real images using guided diffusion models. In:
+  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition. pp. 6228--6238 (2023)
+
+\bibitem{ruiz2023dreambooth}
+Ruiz, N., Li, Y., Jampani, V., Pritch, Y., Rubinstein, M., Aberman, K.:
+  {DreamBooth}: Fine tuning text-to-image diffusion models for subject-driven
+  generation. Proceedings of the IEEE/CVF Conference on Computer Vision and
+  Pattern Recognition pp. 22500--22510 (2023)
+
+\bibitem{tang2024creatilayout}
+Tang, H., et~al.: {CreatiLayout}: Siamese multimodal diffusion transformer for
+  creative layout-to-image generation. arXiv preprint arXiv:2412.03859  (2024)
+
+\bibitem{omnigen2_2025}
+Team, O.: {OmniGen2}: Exploration to advanced multimodal generation. arXiv
+  preprint  (2025)
+
+\bibitem{xverse2024}
+Team, X.: {XVerse}: Controllable human image generation via cross-id and
+  cross-attribute disentanglement. arXiv preprint  (2024)
+
+\bibitem{tumanyan2023plug}
+Tumanyan, N., Geyer, M., Bagon, S., Dekel, T.: Plug-and-play diffusion features
+  for text-driven image-to-image translation. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition. pp. 1921--1930 (2023)
+
+\bibitem{wang2024instantid}
+Wang, Q., Bai, X., Wang, H., Qin, Z., Chen, A.: {InstantID}: Zero-shot
+  identity-preserving generation in seconds. arXiv preprint arXiv:2401.07519
+  (2024)
+
+\bibitem{wang2024msdiffusion}
+Wang, X., et~al.: {MS-Diffusion}: Multi-subject zero-shot image personalization
+  with layout guidance. arXiv preprint arXiv:2406.07209  (2024)
+
+\bibitem{wu2025uno}
+Wu, M., et~al.: {UNO}: Boosting spatially-aware visual grounding via universal
+  negative objectives. arXiv preprint arXiv:2501.05243  (2025)
+
+\bibitem{xiang2025instanceassemble}
+Xiang, Q., Sun, S., Li, B., Song, D., Li, H., Chen, N., Tang, X., Hu, Y.,
+  Zhang, J.: {InstanceAssemble}: Layout-aware image generation via instance
+  assembling attention. arXiv preprint arXiv:2509.16691  (2025)
+
+\bibitem{xiao2024omnigen}
+Xiao, S., Wang, Y., Zhou, J., Yuan, H., Xing, X., Yan, R., Wang, S., Huang, T.,
+  Liu, Z.: {OmniGen}: Unified image generation. arXiv preprint arXiv:2409.11340
+   (2024)
+
+\bibitem{ye2023ip}
+Ye, H., Zhang, J., Liu, S., Han, X., Yang, W.: {IP-Adapter}: Text compatible
+  image prompt adapter for text-to-image diffusion models. In: Advances in
+  Neural Information Processing Systems (2023)
+
+\bibitem{zhang2023adding}
+Zhang, L., Rao, A., Agrawala, M.: Adding conditional control to text-to-image
+  diffusion models. In: Proceedings of the IEEE/CVF International Conference on
+  Computer Vision. pp. 3836--3847 (2023)
+
+\bibitem{zhang2025easycontrol}
+Zhang, Y., et~al.: {EasyControl}: Transfer {ControlNet} to video diffusion for
+  controllable generation and editing. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition (2025)
+
+\end{thebibliography}

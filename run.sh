@@ -1,0 +1,1 @@
+& "$env:LOCALAPPDATA\Programs\MiKTeX\miktex\bin\x64\pdflatex.exe" main
