@@ -388,7 +388,7 @@ On average, scenes contain $8.3$ annotated objects per image; we report aggregat
 All methods are evaluated on a single NVIDIA H100 at \(1280 \times 720\) using the prompt template from Section~\ref{sec:layout-gen}. Following prior work, we select five object crops per image from the largest ground-truth boxes by area; each crop is passed through Flux~2.0 Dev to synthesize a neutral-pose, neutral-lighting canonicalization, and these reference images are fed to all multi-reference methods for the composite generation task. CreatiLayout and InstanceAssemble~\cite{xiang2025instanceassemble} receive only Dense Layout boxes and text, whereas UNO~\cite{wu2025uno}, XVerse~\cite{xverse2024}, and RefCompose additionally receive the same canonicalized reference crops. Region-wise metrics are computed using object localizations obtained from Grounding DINO~\cite{liu2023grounding}. As shown in Table~\ref{tab:memory}, token-based methods exhibit memory growth with increasing reference count and become out-of-memory at \(N=6\), while RefCompose maintains an approximately constant memory footprint through canvas compression. Consequently, all baseline comparisons are reported at \(N=5\), with Table~\ref{tab:quant_results} additionally reporting RefCompose in the \(N>5\) setting to demonstrate scalability to larger numbers of references without increasing memory usage.
 
 
-Following LayoutSAM-Eval~\cite{xiang2025instanceassemble}, evaluation is divided into \emph{region-wise} and \emph{global-wise} quality. Region-wise metrics assess whether individual objects are generated at the correct locations and faithfully preserve the attributes specified by the input references and descriptions. Specifically, Spatial measures object placement accuracy, while Color, Texture, and Shape evaluate the fidelity of object appearance and structure. Global-wise metrics measure overall image quality, semantic consistency, and reference preservation. PICK and CLIP-T assess image-text alignment, DINO$_{\text{refs}}$ evaluates consistency with the supplied reference images, and CLIP-I captures image-level visual similarity. Higher values indicate better performance for all metrics.
+Following LayoutSAM-Eval~\cite{xiang2025instanceassemble}, evaluation is divided into \emph{region-wise} and \emph{global-wise} quality. Region-wise metrics assess whether individual objects are generated at the correct locations and faithfully preserve the attributes specified by the input references and descriptions. Specifically, Spatial measures object placement accuracy, while Color, Texture, and Shape evaluate the fidelity of object appearance and structure. Global-wise metrics measure overall image quality, semantic consistency, and reference preservation. PICK and CLIP-T assess image-text alignment, DINO measures similarity to the target composition, DINO$_{\text{refs}}$ evaluates consistency with the supplied reference images, and CLIP-I captures image-level visual similarity. Higher values indicate better performance for all metrics.
 
 
 \begin{table}[t]
@@ -423,52 +423,54 @@ Following LayoutSAM-Eval~\cite{xiang2025instanceassemble}, evaluation is divided
   \label{tab:quant_results}
   \resizebox{\textwidth}{!}{%
   \setlength{\tabcolsep}{8pt}
-  \begin{tabular}{lcccccccc}
+  \begin{tabular}{lccccccccc}
     \toprule
     {\textbf{Method}}
     & \multicolumn{4}{c}{\textbf{Region-wise Quality}}
-    & \multicolumn{4}{c}{\textbf{Global-wise Quality}} \\
-    \cmidrule(lr){2-5} \cmidrule(lr){6-9}
+    & \multicolumn{5}{c}{\textbf{Global-wise Quality}} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-10}
     & \textbf{Spatial}$\uparrow$
     & \textbf{Color}$\uparrow$
     & \textbf{Texture}$\uparrow$
     & \textbf{Shape}$\uparrow$
     & \textbf{PICK}$\uparrow$
+    & \textbf{DINO}$\uparrow$
     & \textbf{DINO$_{\text{refs}}$}$\uparrow$
     & \textbf{CLIP-I}$\uparrow$
     & \textbf{CLIP-T}$\uparrow$ \\
     \midrule
-    \multicolumn{9}{l}{\textit{Layout-only baselines}} \\
+    \multicolumn{10}{l}{\textit{Layout-only baselines}} \\
     CreatiLayout~\cite{tang2024creatilayout}
       & 0.726 & 0.487 & 0.518 & 0.501
-      & 0.222 & 0.482 & 0.727 & \textbf{0.335} \\
+      & 0.222 & 0.696 & 0.482 & 0.727 & \textbf{0.335} \\
     InstanceAssemble~\cite{xiang2025instanceassemble}
       & 0.790 & 0.590 & 0.620 & 0.610
-      & 0.221 & 0.457 & 0.703 & 0.330 \\
+      & 0.221 & 0.686 & 0.457 & 0.703 & 0.330 \\
     \midrule
-    \multicolumn{9}{l}{\textit{Reference-image baselines}} \\
+    \multicolumn{10}{l}{\textit{Reference-image baselines}} \\
     UNO~\cite{wu2025uno}
       & 0.750 & 0.500 & 0.530 & 0.520
-      & 0.225 & 0.548 & 0.742 & 0.329 \\
+      & 0.225 & 0.821 & 0.548 & 0.742 & 0.329 \\
     XVerse~\cite{xverse2024}
       & 0.665 & 0.421 & 0.442 & 0.428
-      & 0.218 & 0.506 & 0.731 & 0.302 \\
+      & 0.218 & 0.686 & 0.506 & 0.731 & 0.302 \\
     \midrule
     \textbf{RefCompose} ($N{=}5$)
       & 0.908 & 0.826 & 0.854 & 0.849
-      & 0.229 & 0.613 & 0.766 & 0.327 \\
+      & 0.229 & 0.959 & 0.613 & 0.766 & 0.327 \\
     \textit{vs. best reference baseline}
       & \textcolor{green!60!black}{+0.172}
       & \textcolor{green!60!black}{+0.338}
       & \textcolor{green!60!black}{+0.336}
       & \textcolor{green!60!black}{+0.341}
       & \textcolor{green!60!black}{+0.006}
+      & \textcolor{green!60!black}{+0.150}
       & \textcolor{green!60!black}{+0.077}
       & \textcolor{green!60!black}{+0.036}
       & 0.000 \\
     \textbf{RefCompose} ($N{>}5$)
       & \textbf{0.922} & \textbf{0.838} & \textbf{0.866} & \textbf{0.861}
-      & \textbf{0.231} & \textbf{0.625} & \textbf{0.778} & 0.329 \\
+      & \textbf{0.231} & \textbf{0.971} & \textbf{0.625} & \textbf{0.778} & 0.329 \\
     \bottomrule
   \end{tabular}%
   }
