@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.21)  23 JUL 2026 13:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.21)  23 JUL 2026 14:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1059,44 +1059,63 @@ Overfull \hbox (6.87328pt too wide) in paragraph at lines 319--324
 led with a flow-matching
  []
 
-[9]
-Overfull \hbox (2.83345pt too wide) in paragraph at lines 353--354
+<images/dataset_prep.png, id=178, 2792.4325pt x 403.5075pt>
+File: images/dataset_prep.png Graphic file (type png)
+<use images/dataset_prep.png>
+Package pdftex.def Info: images/dataset_prep.png  used on input line 339.
+(pdftex.def)             Requested size: 347.12361pt x 50.15509pt.
+[9 <./images/dataset_prep.png>]
+Overfull \hbox (2.83345pt too wide) in paragraph at lines 361--362
 \T1/cmr/m/it/9 with [light-ing con-di-tion], [mood/style de-scrip-tors], and [p
 ho-to-re-al-is-tic/cinematic
  []
 
 [10]
-Overfull \hbox (5.04039pt too wide) in paragraph at lines 372--374
+Overfull \hbox (5.04039pt too wide) in paragraph at lines 380--382
 \T1/cmr/m/n/10 an-no-tated multi-object scenes with ground-truth bound-ing boxe
 s and per-instance
  []
 
 [11]
-<images/qual.png, id=240, 4028.04875pt x 2986.15625pt>
+<images/qual.png, id=243, 4028.04875pt x 2986.15625pt>
 File: images/qual.png Graphic file (type png)
 <use images/qual.png>
-Package pdftex.def Info: images/qual.png  used on input line 478.
+Package pdftex.def Info: images/qual.png  used on input line 486.
 (pdftex.def)             Requested size: 347.12361pt x 257.30565pt.
 
-Overfull \hbox (2.29472pt too wide) in paragraph at lines 483--484
+Overfull \hbox (2.29472pt too wide) in paragraph at lines 491--492
 []\T1/cmr/m/n/10 Layout-conditioned base-lines (Cre-ati-Lay-out, In-stance-Asse
 m-ble) op-er-ate with-
  []
 
-[12] [13]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14 <./images/qual.png>]
-<images/abalation.jpg, id=271, 1190.4475pt x 439.6425pt>
+[12] [13] [14 <./images/qual.png>]
+<images/multi_reference_images.jpg, id=276, 1528.71124pt x 1008.76875pt>
+File: images/multi_reference_images.jpg Graphic file (type jpg)
+<use images/multi_reference_images.jpg>
+Package pdftex.def Info: images/multi_reference_images.jpg  used on input line 
+539.
+(pdftex.def)             Requested size: 347.12361pt x 229.05656pt.
+ [15 <./images/multi_reference_images.jpg>]
+<images/orientation_picture.jpg, id=286, 2050.66125pt x 668.4975pt>
+File: images/orientation_picture.jpg Graphic file (type jpg)
+<use images/orientation_picture.jpg>
+Package pdftex.def Info: images/orientation_picture.jpg  used on input line 552
+.
+(pdftex.def)             Requested size: 347.12361pt x 113.15344pt.
+<images/abalation.jpg, id=287, 1190.4475pt x 439.6425pt>
 File: images/abalation.jpg Graphic file (type jpg)
 <use images/abalation.jpg>
-Package pdftex.def Info: images/abalation.jpg  used on input line 531.
+Package pdftex.def Info: images/abalation.jpg  used on input line 563.
 (pdftex.def)             Requested size: 347.12361pt x 128.19072pt.
- [15 <./images/abalation.jpg>] (main.bbl [16] [17]) [18]
-(main.aux)
+
+Underfull \vbox (badness 6078) has occurred while \output is active []
+
+
+Underfull \vbox (badness 6078) has occurred while \output is active []
+
+ [16 <./images/orientation_picture.jpg>] [17 <./images/abalation.jpg>] (main.bb
+l [18])
+[19] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -1105,10 +1124,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7E540FC7BFC23CAA5AAEAC4A86C3ADA7;436.
  ) 
 Here is how much of TeX's memory you used:
- 26097 strings out of 467871
- 491381 string characters out of 5419828
- 937152 words of memory out of 5000000
- 54452 multiletter control sequences out of 15000+600000
+ 26130 strings out of 467871
+ 492352 string characters out of 5419828
+ 941152 words of memory out of 5000000
+ 54479 multiletter control sequences out of 15000+600000
  649176 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,108p,1752b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1140,9 +1159,9 @@ m/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmsy9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (18 pages, 73273928 bytes).
+Output written on main.pdf (19 pages, 78528933 bytes).
 PDF statistics:
- 831 PDF objects out of 1000 (max. 8388607)
- 92 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 852 PDF objects out of 1000 (max. 8388607)
+ 98 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

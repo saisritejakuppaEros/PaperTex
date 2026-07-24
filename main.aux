@@ -62,12 +62,15 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Geometric Scaffolding via Depth Estimation}{8}{subsection.3.3}\protected@file@percent }
 \newlabel{sec:depth}{{3.3}{8}{Geometric Scaffolding via Depth Estimation}{subsection.3.3}{}}
 \newlabel{sec:depth@cref}{{[subsection][3][3]3.3}{[1][8][]8}{}{}{}}
-\citation{liu2023grounding}
-\citation{qwen3vl}
 \def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Overview of the dataset preparation pipeline. Movie shots are passed through Grounding DINO for object detection; detected crops are canonicalized with Flux~2.0 Dev to neutral pose and lighting; outputs are filtered by DINO similarity against the source crops; and retained samples are annotated with Qwen3-VL at both scene and crop level.}}{9}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:data_pipeline}{{3}{9}{Overview of the dataset preparation pipeline. Movie shots are passed through Grounding DINO for object detection; detected crops are canonicalized with Flux~2.0 Dev to neutral pose and lighting; outputs are filtered by DINO similarity against the source crops; and retained samples are annotated with Qwen3-VL at both scene and crop level}{figure.caption.10}{}}
+\newlabel{fig:data_pipeline@cref}{{[figure][3][]3}{[1][9][]9}{}{}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Decoupled Structure--Appearance (DSA) LoRA}{9}{subsection.3.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Experiments}{9}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Dataset Preparation}{9}{subsection.4.1}\protected@file@percent }
+\citation{liu2023grounding}
+\citation{qwen3vl}
 \citation{liu2023grounding}
 \def\@LN@column{1}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Layout Generation}{10}{subsection.4.2}\protected@file@percent }
@@ -77,19 +80,18 @@
 \citation{liu2023grounding}
 \citation{xiang2025instanceassemble}
 \citation{xiang2025instanceassemble}
+\def\@LN@column{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RefCompose LoRA}{11}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Evaluation benchmark.}{11}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Quantitative Analysis}{11}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:quant}{{4.4}{11}{Quantitative Analysis}{subsection.4.4}{}}
+\newlabel{sec:quant@cref}{{[subsection][4][4]4.4}{[1][11][]11}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Test set.}{11}{section*.12}\protected@file@percent }
 \citation{qwen3vl}
 \citation{xiang2025instanceassemble}
 \citation{wu2025uno}
 \citation{xverse2024}
 \citation{liu2023grounding}
-\def\@LN@column{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}RefCompose LoRA}{11}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Evaluation benchmark.}{11}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Quantitative Analysis}{11}{subsection.4.4}\protected@file@percent }
-\newlabel{sec:quant}{{4.4}{11}{Quantitative Analysis}{subsection.4.4}{}}
-\newlabel{sec:quant@cref}{{[subsection][4][4]4.4}{[1][11][]11}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Test set.}{11}{section*.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Evaluation protocol and GPU memory.}{11}{section*.12}\protected@file@percent }
 \citation{xiang2025instanceassemble}
 \citation{wu2025uno}
 \citation{xverse2024}
@@ -110,31 +112,43 @@
 \citation{wu2025uno}
 \citation{xverse2024}
 \def\@LN@column{1}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Peak GPU memory (GB) at inference for varying reference count $N$ (batch size $1$; single H100; $1280 \times 720$). UNO~\cite  {wu2025uno} and XVerse~\cite  {xverse2024} are reference-image-based methods whose memory scales with the number of encoded references; both fail at $N{=}6$. RefCompose keeps memory approximately constant by canvas compression. OOM denotes out-of-memory failure.}}{12}{table.caption.13}\protected@file@percent }
-\newlabel{tab:memory}{{1}{12}{Peak GPU memory (GB) at inference for varying reference count $N$ (batch size $1$; single H100; $1280 \times 720$). UNO~\cite {wu2025uno} and XVerse~\cite {xverse2024} are reference-image-based methods whose memory scales with the number of encoded references; both fail at $N{=}6$. RefCompose keeps memory approximately constant by canvas compression. OOM denotes out-of-memory failure}{table.caption.13}{}}
-\newlabel{tab:memory@cref}{{[table][1][]1}{[1][12][]12}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Comparison to token-based reference methods.}{12}{section*.16}\protected@file@percent }
-\citation{wu2025uno}
-\citation{xverse2024}
+\@writefile{toc}{\contentsline {paragraph}{Evaluation protocol and GPU memory.}{12}{section*.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison to token-based reference methods.}{12}{section*.17}\protected@file@percent }
 \def\@LN@column{1}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Quantitative comparison on the Dense Layout test set~\cite  {xiang2025instanceassemble} ($5{,}000$ images; mean $8.3$ objects per image). Previous methods use five references per example because UNO and XVerse are not runnable beyond this setting on one H100; the $N{>}5$ RefCompose row evaluates the same model with additional references. Higher is better for all metrics. Reported values are means over the test set. \textbf  {Bold} denotes the best overall result; the improvement row compares RefCompose ($N{>}5$) only against the strongest reference-image baseline for each metric.}}{13}{table.caption.14}\protected@file@percent }
-\newlabel{tab:quant_results}{{2}{13}{Quantitative comparison on the Dense Layout test set~\cite {xiang2025instanceassemble} ($5{,}000$ images; mean $8.3$ objects per image). Previous methods use five references per example because UNO and XVerse are not runnable beyond this setting on one H100; the $N{>}5$ RefCompose row evaluates the same model with additional references. Higher is better for all metrics. Reported values are means over the test set. \textbf {Bold} denotes the best overall result; the improvement row compares RefCompose ($N{>}5$) only against the strongest reference-image baseline for each metric}{table.caption.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Peak GPU memory (GB) at inference for varying reference count $N$ (batch size $1$; single H100; $1280 \times 720$). UNO~\cite  {wu2025uno} and XVerse~\cite  {xverse2024} are reference-image-based methods whose memory scales with the number of encoded references; both fail at $N{=}6$. RefCompose keeps memory approximately constant by canvas compression. OOM denotes out-of-memory failure.}}{13}{table.caption.14}\protected@file@percent }
+\newlabel{tab:memory}{{1}{13}{Peak GPU memory (GB) at inference for varying reference count $N$ (batch size $1$; single H100; $1280 \times 720$). UNO~\cite {wu2025uno} and XVerse~\cite {xverse2024} are reference-image-based methods whose memory scales with the number of encoded references; both fail at $N{=}6$. RefCompose keeps memory approximately constant by canvas compression. OOM denotes out-of-memory failure}{table.caption.14}{}}
+\newlabel{tab:memory@cref}{{[table][1][]1}{[1][12][]13}{}{}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Quantitative comparison on the Dense Layout test set~\cite  {xiang2025instanceassemble} ($5{,}000$ images; mean $8.3$ objects per image). Previous methods use five references per example because UNO and XVerse are not runnable beyond this setting on one H100; the $N{>}5$ RefCompose row evaluates the same model with additional references. Higher is better for all metrics. Reported values are means over the test set. \textbf  {Bold} denotes the best overall result; the improvement row compares RefCompose ($N{>}5$) only against the strongest reference-image baseline for each metric.}}{13}{table.caption.15}\protected@file@percent }
+\newlabel{tab:quant_results}{{2}{13}{Quantitative comparison on the Dense Layout test set~\cite {xiang2025instanceassemble} ($5{,}000$ images; mean $8.3$ objects per image). Previous methods use five references per example because UNO and XVerse are not runnable beyond this setting on one H100; the $N{>}5$ RefCompose row evaluates the same model with additional references. Higher is better for all metrics. Reported values are means over the test set. \textbf {Bold} denotes the best overall result; the improvement row compares RefCompose ($N{>}5$) only against the strongest reference-image baseline for each metric}{table.caption.15}{}}
 \newlabel{tab:quant_results@cref}{{[table][2][]2}{[1][12][]13}{}{}{}}
-\@writefile{toc}{\contentsline {paragraph}{Comparison to layout-conditioned methods.}{13}{section*.17}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Global preference and text alignment.}{13}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Qualitative Analysis}{13}{subsection.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Comparison to layout-conditioned methods.}{13}{section*.18}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Global preference and text alignment.}{13}{section*.19}\protected@file@percent }
+\citation{wu2025uno}
+\citation{xverse2024}
 \def\@LN@column{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Qualitative comparison of RefCompose against CreatiLayout, InstanceAssemble, UNO, and XVerse across seven diverse multi-subject scenes, with ground truth in the leftmost column. Layout-conditioned baselines hallucinate subject appearance while token-based methods exhibit subject drift and loss of fine-grained detail under multi-object compositions. RefCompose consistently reproduces both spatial arrangement and photometric identity with the highest fidelity across all scene types.}}{14}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:teaser}{{3}{14}{Qualitative comparison of RefCompose against CreatiLayout, InstanceAssemble, UNO, and XVerse across seven diverse multi-subject scenes, with ground truth in the leftmost column. Layout-conditioned baselines hallucinate subject appearance while token-based methods exhibit subject drift and loss of fine-grained detail under multi-object compositions. RefCompose consistently reproduces both spatial arrangement and photometric identity with the highest fidelity across all scene types}{figure.caption.15}{}}
-\newlabel{fig:teaser@cref}{{[figure][3][]3}{[1][12][]14}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Qualitative comparison of RefCompose against CreatiLayout, InstanceAssemble, UNO, and XVerse across seven diverse multi-subject scenes, with ground truth in the leftmost column. Layout-conditioned baselines hallucinate subject appearance while token-based methods exhibit subject drift and loss of fine-grained detail under multi-object compositions. RefCompose consistently reproduces both spatial arrangement and photometric identity with the highest fidelity across all scene types.}}{14}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:teaser}{{4}{14}{Qualitative comparison of RefCompose against CreatiLayout, InstanceAssemble, UNO, and XVerse across seven diverse multi-subject scenes, with ground truth in the leftmost column. Layout-conditioned baselines hallucinate subject appearance while token-based methods exhibit subject drift and loss of fine-grained detail under multi-object compositions. RefCompose consistently reproduces both spatial arrangement and photometric identity with the highest fidelity across all scene types}{figure.caption.16}{}}
+\newlabel{fig:teaser@cref}{{[figure][4][]4}{[1][12][]14}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Qualitative Analysis}{14}{subsection.4.5}\protected@file@percent }
 \def\@LN@column{1}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Ablation study isolating the contributions of the reference canvas and depth map prior on an indoor multi-object scene, with corresponding input reference crops shown below. Removing either component individually degrades subject identity or geometric coherence, manifesting as hallucinated textures or incorrect spatial placement respectively. The full model combining both conditioning signals achieves accurate appearance preservation and geometrically consistent composition, confirming their complementary necessity.}}{15}{figure.caption.19}\protected@file@percent }
-\newlabel{fig:ablation}{{4}{15}{Ablation study isolating the contributions of the reference canvas and depth map prior on an indoor multi-object scene, with corresponding input reference crops shown below. Removing either component individually degrades subject identity or geometric coherence, manifesting as hallucinated textures or incorrect spatial placement respectively. The full model combining both conditioning signals achieves accurate appearance preservation and geometrically consistent composition, confirming their complementary necessity}{figure.caption.19}{}}
-\newlabel{fig:ablation@cref}{{[figure][4][]4}{[1][15][]15}{}{}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Ablation Study}{15}{subsection.4.6}\protected@file@percent }
-\newlabel{sec:ablation}{{4.6}{15}{Ablation Study}{subsection.4.6}{}}
-\newlabel{sec:ablation@cref}{{[subsection][6][4]4.6}{[1][15][]15}{}{}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{15}{section.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Qualitative example with two different reference sets for the same scene layout. The prompt-induced canvas and aligned depth map provide shared structural priors, while the reference images specify subject appearance. RefCompose generates semantically consistent composites for both reference configurations.}}{15}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:multi_reference}{{5}{15}{Qualitative example with two different reference sets for the same scene layout. The prompt-induced canvas and aligned depth map provide shared structural priors, while the reference images specify subject appearance. RefCompose generates semantically consistent composites for both reference configurations}{figure.caption.21}{}}
+\newlabel{fig:multi_reference@cref}{{[figure][5][]5}{[1][15][]15}{}{}{}}
+\@writefile{toc}{\contentsline {paragraph}{Multi-reference flexibility.}{15}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Depth-controlled orientation.}{15}{section*.22}\protected@file@percent }
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Depth-controlled generation with identical reference assets. Changing only the depth map alters object orientation and scene dynamics---from a static sweet-shop arrangement to a chaotic environment with floating debris---while reference appearance remains stable.}}{16}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:orientation_control}{{6}{16}{Depth-controlled generation with identical reference assets. Changing only the depth map alters object orientation and scene dynamics---from a static sweet-shop arrangement to a chaotic environment with floating debris---while reference appearance remains stable}{figure.caption.23}{}}
+\newlabel{fig:orientation_control@cref}{{[figure][6][]6}{[1][16][]16}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Ablation Study}{16}{subsection.4.6}\protected@file@percent }
+\newlabel{sec:ablation}{{4.6}{16}{Ablation Study}{subsection.4.6}{}}
+\newlabel{sec:ablation@cref}{{[subsection][6][4]4.6}{[1][16][]16}{}{}{}}
+\def\@LN@column{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Ablation study isolating the contributions of the reference canvas and depth map prior on an indoor multi-object scene, with corresponding input reference crops shown below. Removing either component individually degrades subject identity or geometric coherence, manifesting as hallucinated textures or incorrect spatial placement respectively. The full model combining both conditioning signals achieves accurate appearance preservation and geometrically consistent composition, confirming their complementary necessity.}}{17}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:ablation}{{7}{17}{Ablation study isolating the contributions of the reference canvas and depth map prior on an indoor multi-object scene, with corresponding input reference crops shown below. Removing either component individually degrades subject identity or geometric coherence, manifesting as hallucinated textures or incorrect spatial placement respectively. The full model combining both conditioning signals achieves accurate appearance preservation and geometrically consistent composition, confirming their complementary necessity}{figure.caption.24}{}}
+\newlabel{fig:ablation@cref}{{[figure][7][]7}{[1][16][]17}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusion}{17}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{17}{section.6}\protected@file@percent }
 \bibstyle{splncs04}
 \bibdata{main}
 \bibcite{qwen3vl}{1}
@@ -142,8 +156,6 @@
 \bibcite{feng2024layoutgpt}{3}
 \bibcite{he2025dreamo}{4}
 \bibcite{hertz2022prompt}{5}
-\def\@LN@column{1}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{16}{section.6}\protected@file@percent }
 \bibcite{hu2022lora}{6}
 \bibcite{kumari2023multiconcept}{7}
 \bibcite{li2023gligen}{8}
@@ -151,6 +163,7 @@
 \bibcite{lian2023layoutdiffusion}{10}
 \bibcite{depthanything3}{11}
 \bibcite{liu2023grounding}{12}
+\def\@LN@column{1}
 \bibcite{mokady2023null}{13}
 \bibcite{ruiz2023dreambooth}{14}
 \bibcite{tang2024creatilayout}{15}
@@ -162,9 +175,8 @@
 \bibcite{wu2025uno}{21}
 \bibcite{xiang2025instanceassemble}{22}
 \bibcite{xiao2024omnigen}{23}
-\def\@LN@column{1}
 \bibcite{ye2023ip}{24}
 \bibcite{zhang2023adding}{25}
 \bibcite{zhang2025easycontrol}{26}
 \def\@LN@column{1}
-\gdef \@abspage@last{18}
+\gdef \@abspage@last{19}

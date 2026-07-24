@@ -333,12 +333,20 @@ where $\mathbf{p}$ provides semantic grounding, $z_{\mathcal{D}}$ enforces the g
 
 
 \section{Experiments}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{images/dataset_prep.png}
+\caption{Overview of the dataset preparation pipeline. Movie shots are passed through Grounding DINO for object detection; detected crops are canonicalized with Flux~2.0 Dev to neutral pose and lighting; outputs are filtered by DINO similarity against the source crops; and retained samples are annotated with Qwen3-VL at both scene and crop level.}
+\label{fig:data_pipeline}
+\end{figure}
+
 \subsection{Dataset Preparation}
 
 
 \textbf{Dataset Construction.} We train on ultra high resolution cinematic imagery at $1280 \times 720$ resolution, drawn from Eros's proprietary movie catalogue, where most object references are canonicalized to a neutral pose. In addition, we construct a synthetic dataset using Flux 2.0 to complement this real data with diverse object positions and orientations, enabling the model to learn pose variation while the real dataset supplies richer textures; further details on its generation and composition are provided in the supplementary material.
 
-Our data generation pipeline proceeds in four stages. First, each movie shot is passed through Grounding DINO~\cite{liu2023grounding} to detect candidate objects---actors, props, and landmarks---retaining only shots yielding more than four detected objects to ensure sufficient compositional density. Second, each detected object crop is fed to Flux~2.0 Dev to synthesize a neutral-pose, neutral-lighting canonicalization of the object, removing scene-specific pose and illumination variation. Third, we filter these canonicalized outputs against their original cropped counterparts using DINO cosine similarity, retaining a sample only if the similarity exceeds $0.90$; samples falling below this threshold are discarded as insufficiently faithful to the source reference. Finally, the retained shots are annotated using Qwen3-VL~\cite{qwen3vl}, producing both holistic scene-level descriptions and crop-level object descriptions. This pipeline yields approximately $50{,}000$ samples drawn from $1{,}000$ distinct films from Eros's proprietary catalogue, together with additional samples generated through our synthetic dataset pipeline.
+Our data generation pipeline proceeds in four stages. First, each movie shot is passed through Grounding DINO~\cite{liu2023grounding} to detect candidate objects---actors, props, and landmarks---retaining only shots yielding more than four detected objects to ensure sufficient compositional density. Second, each detected object crop is fed to Flux~2.0 Dev to synthesize a neutral-pose, neutral-lighting canonicalization of the object, removing scene-specific pose and illumination variation. Third, we filter these canonicalized outputs against their original cropped counterparts using DINO cosine similarity, retaining a sample only if the similarity exceeds $0.90$; samples falling below this threshold are discarded as insufficiently faithful to the source reference. Finally, the retained shots are annotated using Qwen3-VL~\cite{qwen3vl}, producing both holistic scene-level descriptions and crop-level object descriptions, as illustrated in Figure~\ref{fig:data_pipeline}. This pipeline yields approximately $50{,}000$ samples drawn from $1{,}000$ distinct films from Eros's proprietary catalogue, together with additional samples generated through our synthetic dataset pipeline.
 
 
 \subsection{Layout Generation}
@@ -521,6 +529,30 @@ RefCompose composites references at full resolution on a shared canvas and condi
 The lower CLIP-T score relative to layout-conditioned baselines reflects an expected tradeoff: canvas conditioning can shift generation toward reference fidelity at a minor cost to global text alignment, so spatial and DINO$_\text{refs}$ metrics are more diagnostic for reference-grounded composition.
 Residual failures appear when prompt-induced layouts imply ambiguous occlusion or implausible depth, which bounds geometric plausibility even though the depth prior corrects most floating and interpenetration artefacts relative to layout-only baselines.
 
+\paragraph{Multi-reference flexibility.}
+Figure~\ref{fig:multi_reference} evaluates two distinct reference sets for the same scene configuration.
+A Flux~2.0-generated layout image defines where each subject should appear, while the estimated depth map supplies additional geometric cues for relative orientation and placement.
+By conditioning jointly on the reference canvas and depth prior, RefCompose synthesises coherent outputs for both reference sets, preserving the intended spatial arrangement while transferring the appearance of each supplied subject.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{images/multi_reference_images.jpg}
+\caption{Qualitative example with two different reference sets for the same scene layout. The prompt-induced canvas and aligned depth map provide shared structural priors, while the reference images specify subject appearance. RefCompose generates semantically consistent composites for both reference configurations.}
+\label{fig:multi_reference}
+\end{figure}
+
+\paragraph{Depth-controlled orientation.}
+Figure~\ref{fig:orientation_control} further isolates the role of the depth prior by holding the reference assets fixed and varying only the depth map.
+In the first example, the depth map describes a conventional arrangement in which objects are naturally placed around a sweet shop.
+In the second, the depth map is edited to depict a dynamic scene with floating debris, airborne bricks, and scattered objects.
+Despite identical reference inputs, the generated results follow the geometry and orientation encoded by each depth map, demonstrating that RefCompose can control scene dynamics and spatial arrangement while preserving reference identity.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{images/orientation_picture.jpg}
+\caption{Depth-controlled generation with identical reference assets. Changing only the depth map alters object orientation and scene dynamics---from a static sweet-shop arrangement to a chaotic environment with floating debris---while reference appearance remains stable.}
+\label{fig:orientation_control}
+\end{figure}
 
 
 \subsection{Ablation Study}
