@@ -103,7 +103,7 @@ Existing T2I methods face significant limitations when textual prompts are the s
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{images/final_abstract.png}
+\includegraphics[width=\linewidth]{images/final_abstract_compressed.png}
 \caption{Conceptual comparison between prior multi-reference generation paradigms and RefCompose. Existing approaches suffer from memory overhead scaling linearly with reference count, cultural fidelity gaps, or inability to preserve subject appearance without bounding-box supervision. RefCompose resolves these limitations via 1. a fixed-resolution reference canvas encoding arbitrary references at constant token cost, and 2.  layout from dense visual cues induced directly from a structured text prompt.}
 \label{fig:conceptdiagram}
 \end{figure}
@@ -337,7 +337,7 @@ where $\mathbf{p}$ provides semantic grounding, $z_{\mathcal{D}}$ enforces the g
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\linewidth]{images/dataset_prep.png}
+\includegraphics[width=\linewidth]{images/dataset_prep_compressed.png}
 \caption{Overview of the dataset preparation pipeline. Movie shots are passed through Grounding DINO for object detection; detected crops are canonicalized with Flux~2.0 Dev to neutral pose and lighting; outputs are filtered by DINO similarity against the source crops; and retained samples are annotated with Qwen3-VL at both scene and crop level.}
 \label{fig:data_pipeline}
 \end{figure}
