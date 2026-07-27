@@ -108,6 +108,7 @@ Existing T2I methods face significant limitations when textual prompts are the s
 \label{fig:conceptdiagram}
 \end{figure}
 
+
 Recent advances in reference-based generation have shown considerable promise in scaling to multiple subjects, presenting a rich information source and bridging the gaps in cultural and ethnic fidelity that text-only methods leave unaddressed~\cite{wu2025uno,he2025dreamo,xiao2024omnigen,omnigen2_2025,wang2024instantid,li2024photomaker}. However, encoding reference images and injecting them into the generation pipeline introduces its own fundamental bottlenecks. Transformer-based diffusion models represent the conditioning signals as token sequences. As a result, when multiple reference images are encoded independently and concatenated, the token budget grows linearly with the number of references.
 Beyond four to six images, the associated memory cost becomes prohibitive on
 practical hardware, and the problem compounds for high-resolution inputs where each image
