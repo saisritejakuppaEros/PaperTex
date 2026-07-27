@@ -23,6 +23,7 @@
 % Include other packages here, before hyperref.
 \usepackage{graphicx}
 \usepackage{booktabs}
+\usepackage{placeins}
 
 % The "axessiblity" package can be found at: https://ctan.org/pkg/axessibility?lang=en
 \usepackage[accsupp]{axessibility}  % Improves PDF readability for those with disabilities.
@@ -191,19 +192,19 @@ Our method exploits this design to jointly inject depth (structure) and canvas (
 \section{Methodology}
 \label{sec:method}
 % ---------------------------------------------------------
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{images/method.jpg}
-\caption{End-to-end overview of the RefCompose pipeline across three stages: prompt-induced layout generation via a frozen diffusion transformer, correspondence-guided pixel-space canvas construction, and decoupled structure--appearance conditioning through dual LoRA streams within the MMDiT blocks. The depth map and reference canvas are injected through separate low-rank adaptation streams, ensuring structural and appearance signals remain disentangled throughout denoising. This design maintains constant token complexity irrespective of reference cardinality while preserving full-resolution subject identity.}
-\label{fig:pipeline}
-\end{figure}
-
-
 The central challenge of multi-reference image generation is two-fold: preserving the visual identity of each reference independently while keeping the conditioning cost fixed regardless of how many references are provided.
 Token-concatenation approaches fail on both counts: each additional reference appends a new encoding sequence, causing linear growth in attention complexity and creating cross-reference interference in shared attention layers.
 We address this with a pipeline that decomposes controllable generation into two orthogonal sub-problems: \emph{where} each object should appear (structure) and \emph{what} it should look like (appearance).
 Structure is encoded through a layout-derived geometric scaffold; appearance is grounded locally through a fixed-resolution reference canvas.
 Both signals are injected jointly into a frozen diffusion transformer via decoupled LoRA streams, maintaining constant token complexity irrespective of reference cardinality.
+
+\begin{figure}[!tb]
+\centering
+\includegraphics[width=\linewidth]{images/final_method.jpg}
+\caption{End-to-end overview of the RefCompose pipeline across three stages: prompt-induced layout generation via a frozen diffusion transformer, correspondence-guided pixel-space canvas construction, and decoupled structure--appearance conditioning through dual LoRA streams within the MMDiT blocks. The depth map and reference canvas are injected through separate low-rank adaptation streams, ensuring structural and appearance signals remain disentangled throughout denoising. This design maintains constant token complexity irrespective of reference cardinality while preserving full-resolution subject identity.}
+\label{fig:pipeline}
+\end{figure}
+
 Figure~\ref{fig:pipeline} summarises the pipeline.
 
 \paragraph{Notation.}
@@ -558,17 +559,18 @@ Despite identical reference inputs, the generated results follow the geometry an
 \subsection{Ablation Study}
 \label{sec:ablation}
 
-\begin{figure}[t]
+Figure~\ref{fig:ablation} ablates the reference canvas and depth prior on an indoor multi-object scene (reference crops shown below).
+
+\begin{figure}[!tb]
 \centering
-\includegraphics[width=\linewidth]{images/abalation.jpg}
+\includegraphics[width=\linewidth]{images/final_abalation.jpg}
 \caption{Ablation study isolating the contributions of the reference canvas and depth map prior on an indoor multi-object scene, with corresponding input reference crops shown below. Removing either component individually degrades subject identity or geometric coherence, manifesting as hallucinated textures or incorrect spatial placement respectively. The full model combining both conditioning signals achieves accurate appearance preservation and geometrically consistent composition, confirming their complementary necessity.}
 \label{fig:ablation}
 \end{figure}
 
-Figure~\ref{fig:ablation} ablates the reference canvas and depth prior on an indoor multi-object scene (reference crops shown below).
 Removing the canvas forces the model to infer appearance solely from textual descriptions, resulting in plausible scene layouts but hallucinated object colours, textures, and identities. As illustrated by the bag and toy examples, the depth prior effectively constrains object layout and spatial positioning, yet fails to transfer the appearance characteristics specified by the reference images. Conversely, removing the depth signal preserves partial appearance transfer but degrades spatial reasoning, leading to incorrect object placement and occlusion relationships. For example, although the bat and bed remain recognizable, their arrangement is contextually implausible and fails to reflect realistic object interactions. In contrast, the full model leverages both canvas and depth cues from the same layout frame through decoupled LoRA streams, simultaneously preserving subject appearance and geometric consistency. These results demonstrate that canvas and depth provide complementary information, with appearance and structure jointly contributing to high-fidelity scene generation.
 
-
+\FloatBarrier
 \section{Conclusion}
 
 % This work addresses multi-reference image generation under fixed memory cost, where token-concatenation and QKV-injection approaches struggle to preserve appearance fidelity and spatial precision as the number of references grows. 
