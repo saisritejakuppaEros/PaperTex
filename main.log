@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  27 JUL 2026 20:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  27 JUL 2026 23:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1007,113 +1007,132 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
+<images/final_abstract_compressed.png, id=11, 4312.11pt x 1431.3475pt>
+File: images/final_abstract_compressed.png Graphic file (type png)
+<use images/final_abstract_compressed.png>
+Package pdftex.def Info: images/final_abstract_compressed.png  used on input li
+ne 90.
+(pdftex.def)             Requested size: 347.12361pt x 115.20903pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 91.
+See the caption package documentation for explanation.
+
+[1
 
 {/usr/local/texlive/2026basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
 r/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
 /usr/local/texlive/2026basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
-nc}]
-<images/final_abstract_compressed.png, id=40, 4312.11pt x 1431.3475pt>
-File: images/final_abstract_compressed.png Graphic file (type png)
-<use images/final_abstract_compressed.png>
-Package pdftex.def Info: images/final_abstract_compressed.png  used on input li
-ne 106.
-(pdftex.def)             Requested size: 347.12361pt x 115.20903pt.
-
-Overfull \hbox (8.62651pt too wide) in paragraph at lines 111--117
-[]\T1/cmr/m/n/10 Recent ad-vances in reference-based gen-er-a-tion have shown c
-on-sid-er-able promise
- []
-
-[2 <./images/final_abstract_compressed.png>]
-Overfull \hbox (9.28746pt too wide) in paragraph at lines 133--134
-[]\T1/cmr/m/n/10 2. The pro-posed frame-work in-cor-po-rates a \T1/cmr/bx/n/10 
-de-cou-pled structure-appearance
+nc} <./images/final_abstract_compressed.png>] [2] [3]
+Overfull \hbox (2.23552pt too wide) in paragraph at lines 171--176
+\T1/cmr/m/n/10 keep-ing con-di-tion-ing cost fixed re-gard-less of ref-er-ence 
+count. Token-concatenation
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [3]
-Overfull \hbox (15.37651pt too wide) in paragraph at lines 168--172
- []\T1/cmr/m/it/10 Depth and struc-tural con-di-tion-ing.[] \T1/cmr/m/n/10 Con-
-trol-Net [[]25[]] demon-strated that pre-computed
+Overfull \hbox (0.87474pt too wide) in paragraph at lines 171--176
+\T1/cmr/m/n/10 fer-ence. We de-com-pose con-trol-lable gen-er-a-tion into two o
+r-thog-o-nal sub-problems:
  []
 
-[4]
-<images/final_method.jpg, id=129, 1540.75626pt x 1466.47874pt>
+<images/final_method.jpg, id=121, 1540.75626pt x 1466.47874pt>
 File: images/final_method.jpg Graphic file (type jpg)
 <use images/final_method.jpg>
-Package pdftex.def Info: images/final_method.jpg  used on input line 203.
+Package pdftex.def Info: images/final_method.jpg  used on input line 178.
 (pdftex.def)             Requested size: 347.12361pt x 330.36864pt.
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 179.
+See the caption package documentation for explanation.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[4] [5 <./images/final_method.jpg>] [6]
+! Undefined control sequence.
+<argument> ...cal {C}}, z_{\mathcal {D}}; \AdaptW 
+                                                  \bigr ), 
+l.269 \end{equation}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
- [6 <./images/final_method.jpg>] [7] [8]
-Overfull \hbox (6.87328pt too wide) in paragraph at lines 320--325
-\T1/cmr/m/n/10 frozen. Be-cause Flux-style dif-fu-sion trans-form-ers are sam-p
-led with a flow-matching
- []
+! Undefined control sequence.
+<argument> ...cal {C}}, z_{\mathcal {D}}; \AdaptW 
+                                                  \bigr ) 
+l.275 \end{equation}
+                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-[9]
+[7]
 <images/dataset_prep_compressed.png, id=188, 2792.4325pt x 403.5075pt>
 File: images/dataset_prep_compressed.png Graphic file (type png)
 <use images/dataset_prep_compressed.png>
 Package pdftex.def Info: images/dataset_prep_compressed.png  used on input line
- 340.
+ 292.
 (pdftex.def)             Requested size: 347.12361pt x 50.15509pt.
- [10 <./images/dataset_prep_compressed.png>]
-Overfull \hbox (2.83345pt too wide) in paragraph at lines 362--363
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 293.
+See the caption package documentation for explanation.
+
+
+Overfull \hbox (2.83345pt too wide) in paragraph at lines 304--305
 \T1/cmr/m/it/9 with [light-ing con-di-tion], [mood/style de-scrip-tors], and [p
 ho-to-re-al-is-tic/cinematic
  []
 
-[11]
-Overfull \hbox (5.04039pt too wide) in paragraph at lines 381--383
-\T1/cmr/m/n/10 an-no-tated multi-object scenes with ground-truth bound-ing boxe
-s and per-instance
+[8 <./images/dataset_prep_compressed.png>]
+Overfull \hbox (2.21825pt too wide) in paragraph at lines 329--330
+[]\T1/cmr/m/n/10 Following LayoutSAM-Eval [[]22[]], we re-port \T1/cmr/m/it/10 
+region-wise \T1/cmr/m/n/10 qual-ity (Spa-tial, Color,
  []
 
-[12]
-<images/qual.png, id=249, 4028.04875pt x 2986.15625pt>
+<images/qual.png, id=229, 4028.04875pt x 2986.15625pt>
 File: images/qual.png Graphic file (type png)
 <use images/qual.png>
-Package pdftex.def Info: images/qual.png  used on input line 487.
+Package pdftex.def Info: images/qual.png  used on input line 411.
 (pdftex.def)             Requested size: 347.12361pt x 257.30565pt.
-
-Overfull \hbox (2.29472pt too wide) in paragraph at lines 492--493
-[]\T1/cmr/m/n/10 Layout-conditioned base-lines (Cre-ati-Lay-out, In-stance-Asse
-m-ble) op-er-ate with-
- []
-
-[13] [14 <./images/qual.png>]
-<images/multi_reference_images.jpg, id=276, 1528.71124pt x 1008.76875pt>
+[9] [10] [11 <./images/qual.png>]
+<images/multi_reference_images.jpg, id=265, 1528.71124pt x 1008.76875pt>
 File: images/multi_reference_images.jpg Graphic file (type jpg)
 <use images/multi_reference_images.jpg>
 Package pdftex.def Info: images/multi_reference_images.jpg  used on input line 
-541.
+443.
 (pdftex.def)             Requested size: 347.12361pt x 229.05656pt.
- [15]
-<images/orientation_picture.jpg, id=288, 2050.66125pt x 668.4975pt>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 444.
+See the caption package documentation for explanation.
+
+[12 <./images/multi_reference_images.jpg>]
+<images/orientation_picture.jpg, id=275, 2050.66125pt x 668.4975pt>
 File: images/orientation_picture.jpg Graphic file (type jpg)
 <use images/orientation_picture.jpg>
-Package pdftex.def Info: images/orientation_picture.jpg  used on input line 554
+Package pdftex.def Info: images/orientation_picture.jpg  used on input line 454
 .
 (pdftex.def)             Requested size: 347.12361pt x 113.15344pt.
-<images/final_abalation.jpg, id=290, 1192.455pt x 426.59375pt>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 455.
+See the caption package documentation for explanation.
+
+<images/final_abalation.jpg, id=277, 1192.455pt x 426.59375pt>
 File: images/final_abalation.jpg Graphic file (type jpg)
 <use images/final_abalation.jpg>
-Package pdftex.def Info: images/final_abalation.jpg  used on input line 567.
+Package pdftex.def Info: images/final_abalation.jpg  used on input line 467.
 (pdftex.def)             Requested size: 347.12361pt x 124.17767pt.
- [16 <./images/multi_reference_images.jpg>]
-[17 <./images/orientation_picture.jpg> <./images/final_abalation.jpg>]
-(./main.bbl [18] [19]) [20] (./main.aux)
+[13 <./images/final_abalation.jpg> <./images/orientation_picture.jpg>]
+(./main.bbl [14] [15]) [16] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1122,13 +1141,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7E540FC7BFC23CAA5AAEAC4A86C3ADA7;436.
  ) 
 Here is how much of TeX's memory you used:
- 26154 strings out of 469006
- 490799 string characters out of 5454813
- 932984 words of memory out of 5000000
- 54316 multiletter control sequences out of 15000+600000
+ 26153 strings out of 469006
+ 490761 string characters out of 5454813
+ 935984 words of memory out of 5000000
+ 54319 multiletter control sequences out of 15000+600000
  649176 words of font info for 86 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 99i,14n,108p,1750b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,108p,1488b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mex10.pfb></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/amsfonts/
@@ -1156,10 +1175,10 @@ r/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><
 /usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sfti1000.pf
 b></usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/cm-super/sftt0900
 .pfb>
-Output written on main.pdf (20 pages, 57091136 bytes).
+Output written on main.pdf (16 pages, 57018640 bytes).
 PDF statistics:
- 452 PDF objects out of 1000 (max. 8388607)
- 362 compressed objects within 4 object streams
- 99 named destinations out of 1000 (max. 500000)
+ 434 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 95 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
