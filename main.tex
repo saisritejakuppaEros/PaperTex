@@ -502,6 +502,7 @@ Layout-conditioned baselines (CreatiLayout, InstanceAssemble) operate without vi
 RefCompose consistently outperforms token-based reference methods such as UNO~\cite{wu2025uno} and XVerse~\cite{xverse2024}, achieving higher spatial accuracy (0.908 vs.\ 0.750), colour fidelity (0.826 vs.\ 0.500), and reference alignment (DINO$_\text{refs}$: 0.613 vs.\ 0.548). Moreover, canvas conditioning maintains an approximately constant memory footprint, whereas token-concatenation approaches scale linearly with the number of references. These results highlight the effectiveness of decoupling appearance and layout cues for multi-object reference-conditioned generation.
 
 
+
 \paragraph{Comparison to layout-conditioned methods.}
 % Within the layout-only group, CreatiLayout and InstanceAssemble achieve strong text-alignment scores, with CreatiLayout obtaining the highest CLIP-T score ($0.335$), and InstanceAssemble reaches the higher spatial score ($0.790$), confirming that explicit box supervision aids placement even without reference pixels.
 % Their substantially lower colour, texture, and shape scores are expected given that they must hallucinate appearance from text; these metrics should be read as characterising the value of reference conditioning, not as a like-for-like architectural comparison.
