@@ -1,7 +1,12 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\urlprefix}{URL }
 \providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{tonyassi2024celebrity1000}
+Assi, T.: Celebrity 1000 (2024),
+  \url{https://huggingface.co/datasets/tonyassi/celebrity-1000}, hugging Face
+  Datasets
 
 \bibitem{qwen3vl}
 Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
@@ -14,10 +19,22 @@ Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
   X., Zheng, B., Zhong, H., Zhou, J., Zhou, F., Zhou, J., Zhu, Y., Zhu, K.:
   {Qwen3-VL} technical report. arXiv preprint arXiv:2511.21631  (2025)
 
-\bibitem{esser2024flux}
-Esser, P., Kulal, S., Blattmann, A., Entezari, R., M{\"u}ller, J., Lorenz, D.,
-  Zhang, A., Guo, D., Schuhmann, C., Rombach, R.: Scaling rectified flow
-  transformers for high-resolution image synthesis. In: ICML (2024)
+\bibitem{blackforestlabs2025flux2}
+{Black Forest Labs}: {FLUX.2}: Frontier visual intelligence (2025),
+  \url{https://bfl.ai/blog/flux-2}
+
+\bibitem{blackforestlabs2026flux2dev}
+{Black Forest Labs}: {FLUX.2} [dev] (2026),
+  \url{https://huggingface.co/black-forest-labs/FLUX.2-dev}
+
+\bibitem{bria2024rmbg}
+{BRIA AI}: {RMBG-1.4}: Background removal model (2024),
+  \url{https://huggingface.co/briaai/RMBG-1.4}
+
+\bibitem{caron2021dino}
+Caron, M., Touvron, H., Misra, I., J{\'e}gou, H., Mairal, J., Bojanowski, P.,
+  Joulin, A.: Emerging properties in self-supervised vision transformers. arXiv
+  preprint arXiv:2104.14294  (2021)
 
 \bibitem{feng2024layoutgpt}
 Feng, W., Zhu, W., Fu, T.j., Jampani, V., Ganin, Y., Yang, X.E., Wang, W.Y.:
@@ -29,10 +46,25 @@ Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., Hochreiter, S.: {GANs}
   trained by a two time-scale update rule converge to a local {Nash}
   equilibrium. In: NeurIPS (2017)
 
+\bibitem{hu2022lora}
+Hu, E.J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L.,
+  Chen, W.: {LoRA}: Low-rank adaptation of large language models. International
+  Conference on Learning Representations  (2022)
+
+\bibitem{kannen2024beyond}
+Kannen, N., Ahmad, A., Andreetto, M., Prabhakaran, V., Prabhu, U., Dieng, A.B.,
+  Bhattacharyya, P., Dave, S.: Beyond aesthetics: Cultural competence in
+  text-to-image models. arXiv preprint arXiv:2407.06863  (2024)
+
 \bibitem{li2022glip}
 Li, L.H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan,
   L., Zhang, L., Hwang, J.N., Chang, K.W., Gao, J.: Grounded language-image
   pre-training. In: CVPR. pp. 10965--10975 (2022)
+
+\bibitem{depthanything3}
+Lin, H., Chen, S., Liew, J.H., Chen, D.Y., Li, Z., Shi, G., Feng, J., Kang, B.:
+  Depth anything 3: Recovering the visual space from any views. arXiv preprint
+  arXiv:2511.10647  (2025)
 
 \bibitem{liu2023grounding}
 Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Li, C., Yang, J., Su,
@@ -40,10 +72,25 @@ Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Li, C., Yang, J., Su,
   pre-training for open-set object detection. arXiv preprint arXiv:2303.05499
   (2023)
 
+\bibitem{rombach2022ldm}
+Rombach, R., Blattmann, A., Lorenz, D., Esser, P., Ommer, B.: High-resolution
+  image synthesis with latent diffusion models. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition. pp. 10684--10695
+  (2022)
+
 \bibitem{srivastava2025layyourscene}
 Srivastava, D., Zhang, X., Wen, H., Wen, C., Tu, Z.: Lay-your-scene: Natural
   scene layout generation with diffusion transformers. arXiv preprint
   arXiv:2505.04718  (2025)
+
+\bibitem{tang2024creatilayout}
+Tang, H., et~al.: {CreatiLayout}: Siamese multimodal diffusion transformer for
+  creative layout-to-image generation. arXiv preprint arXiv:2412.03859  (2024)
+
+\bibitem{tang2023emergent}
+Tang, L., Jia, M., Wang, Q., Phoo, C.P., Hariharan, B.: Emergent correspondence
+  from image diffusion. In: Advances in Neural Information Processing Systems
+  (2023)
 
 \bibitem{xiang2025instanceassemble}
 Xiang, Q., Sun, S., Li, B., Song, D., Li, H., Chen, N., Tang, X., Hu, Y.,

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.21)  28 JUL 2026 11:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.7.21)  28 JUL 2026 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -152,7 +152,8 @@ LaTeX Info: Redefining \vec on input line 377.
 \c@remark=\count313
 \headlineindent=\dimen170
 )
-(eccv.sty
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/generic/pdftex\glyphtounicode.te
+x) (eccv.sty
 Package: eccv LaTeX style for ECCV
 
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/silence\silence.sty
@@ -390,6 +391,41 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@dimlist=\toks36
 
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)))
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
 (eccvabbrv.sty
 Package: eccvabbrv Common abbreviations for ECCV
 )
@@ -903,7 +939,11 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 52.
 )
 ==> First Aid for cleveref.sty applied!
-
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 64
+.
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex
 .def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
@@ -911,24 +951,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 55.
-LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1002,174 +1042,235 @@ Package eccv Warning: Package `hyperref' is not loaded with option `pagebackref
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 55.
+Package hyperref Info: Link coloring OFF on input line 64.
 (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
+4.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmss.fd
+File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
+4.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
+4.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+94.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+94.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 94.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 94.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 94.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 94.
 
 
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 94.
 
 
 (C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 96.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 96.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
+7.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 <images/final_abstract_compressed.png, id=10, 4312.11pt x 1431.3475pt>
 File: images/final_abstract_compressed.png Graphic file (type png)
 <use images/final_abstract_compressed.png>
 Package pdftex.def Info: images/final_abstract_compressed.png  used on input li
-ne 92.
+ne 101.
 (pdftex.def)             Requested size: 347.12361pt x 115.20903pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 93.
+(caption)                particular \caption on input line 102.
 See the caption package documentation for explanation.
 
 [1
 
-{C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./images/final_
-abstract_compressed.png>] [2] [3]
-Overfull \hbox (2.23552pt too wide) in paragraph at lines 173--178
-\T1/cmr/m/n/10 keep-ing con-di-tion-ing cost fixed re-gard-less of ref-er-ence 
+{C:/Users/HP/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/HP/AppD
+ata/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/HP/AppData/Loc
+al/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/HP/AppData/Local/
+Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc} <./images/final_abstract_compres
+sed.png>] [2] [3]
+<images/final_method.jpg, id=126, 1540.75626pt x 1466.47874pt>
+File: images/final_method.jpg Graphic file (type jpg)
+<use images/final_method.jpg>
+Package pdftex.def Info: images/final_method.jpg  used on input line 156.
+(pdftex.def)             Requested size: 347.12361pt x 330.36864pt.
+
+Overfull \hbox (2.32166pt too wide) in paragraph at lines 161--166
+\T1/lmr/m/n/10 keep-ing con-di-tion-ing cost fixed re-gard-less of ref-er-ence 
 count. Token-concatenation
  []
 
 
-Overfull \hbox (0.87474pt too wide) in paragraph at lines 173--178
-\T1/cmr/m/n/10 fer-ence. We de-com-pose con-trol-lable gen-er-a-tion into two o
+Overfull \hbox (0.95935pt too wide) in paragraph at lines 161--166
+\T1/lmr/m/n/10 fer-ence. We de-com-pose con-trol-lable gen-er-a-tion into two o
 r-thog-o-nal sub-problems:
  []
 
-<images/final_method.jpg, id=120, 1540.75626pt x 1466.47874pt>
-File: images/final_method.jpg Graphic file (type jpg)
-<use images/final_method.jpg>
-Package pdftex.def Info: images/final_method.jpg  used on input line 180.
-(pdftex.def)             Requested size: 347.12361pt x 330.36864pt.
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 181.
-See the caption package documentation for explanation.
-
-[4] [5 <./images/final_method.jpg>] [6] [7]
-<images/dataset_prep_compressed.png, id=187, 2792.4325pt x 403.5075pt>
+[4{C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{
+C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
+[5 <./images/final_method.jpg>] [6{C:/Users/HP/AppData/Local/Programs/MiKTeX/fo
+nts/enc/dvips/lm/lm-mathex.enc}]
+<images/dataset_prep_compressed.png, id=183, 2792.4325pt x 403.5075pt>
 File: images/dataset_prep_compressed.png Graphic file (type png)
 <use images/dataset_prep_compressed.png>
 Package pdftex.def Info: images/dataset_prep_compressed.png  used on input line
- 292.
+ 269.
 (pdftex.def)             Requested size: 347.12361pt x 50.15509pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 293.
+(caption)                particular \caption on input line 270.
 See the caption package documentation for explanation.
 
-
-Overfull \hbox (2.83345pt too wide) in paragraph at lines 304--305
-\T1/cmr/m/it/9 with [light-ing con-di-tion], [mood/style de-scrip-tors], and [p
+[7 <./images/dataset_prep_compressed.png>]
+Overfull \hbox (2.91551pt too wide) in paragraph at lines 281--282
+\T1/lmr/m/it/9 with [light-ing con-di-tion], [mood/style de-scrip-tors], and [p
 ho-to-re-al-is-tic/cinematic
  []
 
-[8 <./images/dataset_prep_compressed.png>]
-Overfull \hbox (2.21825pt too wide) in paragraph at lines 329--330
-[]\T1/cmr/m/n/10 Following LayoutSAM-Eval [[]22[]], we re-port \T1/cmr/m/it/10 
-region-wise \T1/cmr/m/n/10 qual-ity (Spa-tial, Color,
+[8]
+Overfull \hbox (1.90659pt too wide) in paragraph at lines 304--305
+[]\T1/lmr/m/n/10 Following LayoutSAM-Eval [[]29[]], we re-port \T1/lmr/m/it/10 
+region-wise \T1/lmr/m/n/10 qual-ity (Spa-tial, Color,
  []
 
-<images/qual_compressed.png, id=228, 4028.04875pt x 2986.15625pt>
+
+Overfull \hbox (6.22641pt too wide) in paragraph at lines 304--305
+\T1/lmr/m/n/10 Tex-ture, Shape: place-ment ac-cu-racy and ap-pear-ance/structur
+e fi-delity) and \T1/lmr/m/it/10 global-
+ []
+
+<images/qual_compressed.png, id=251, 4028.04875pt x 2986.15625pt>
 File: images/qual_compressed.png Graphic file (type png)
 <use images/qual_compressed.png>
-Package pdftex.def Info: images/qual_compressed.png  used on input line 411.
+Package pdftex.def Info: images/qual_compressed.png  used on input line 386.
 (pdftex.def)             Requested size: 347.12361pt x 257.30565pt.
-[9] [10] [11 <./images/qual_compressed.png>]
-<images/multi_reference_images.jpg, id=264, 1528.71124pt x 1008.76875pt>
+[9] [10 <./images/qual_compressed.png>]
+<images/multi_reference_images.jpg, id=281, 1528.71124pt x 1008.76875pt>
 File: images/multi_reference_images.jpg Graphic file (type jpg)
 <use images/multi_reference_images.jpg>
 Package pdftex.def Info: images/multi_reference_images.jpg  used on input line 
-445.
+420.
 (pdftex.def)             Requested size: 347.12361pt x 229.05656pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 446.
+(caption)                particular \caption on input line 421.
 See the caption package documentation for explanation.
 
-[12 <./images/multi_reference_images.jpg>]
-<images/orientation_picture.jpg, id=272, 2050.66125pt x 668.4975pt>
+
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+ [11]
+<images/orientation_picture.jpg, id=291, 2050.66125pt x 668.4975pt>
 File: images/orientation_picture.jpg Graphic file (type jpg)
 <use images/orientation_picture.jpg>
-Package pdftex.def Info: images/orientation_picture.jpg  used on input line 456
+Package pdftex.def Info: images/orientation_picture.jpg  used on input line 431
 .
 (pdftex.def)             Requested size: 347.12361pt x 113.15344pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 457.
+(caption)                particular \caption on input line 432.
 See the caption package documentation for explanation.
 
-<images/final_abalation.jpg, id=274, 1192.455pt x 426.59375pt>
+
+Underfull \vbox (badness 2213) has occurred while \output is active []
+
+
+Underfull \vbox (badness 2213) has occurred while \output is active []
+
+ [12 <./images/multi_reference_images.jpg> <./images/orientation_picture.jpg>]
+<images/final_abalation.jpg, id=299, 1192.455pt x 426.59375pt>
 File: images/final_abalation.jpg Graphic file (type jpg)
 <use images/final_abalation.jpg>
-Package pdftex.def Info: images/final_abalation.jpg  used on input line 469.
+Package pdftex.def Info: images/final_abalation.jpg  used on input line 444.
 (pdftex.def)             Requested size: 347.12361pt x 124.17767pt.
-[13 <./images/orientation_picture.jpg>] [14 <./images/final_abalation.jpg>]
-(main.bbl [15]) [16] (main.aux)
+ [13 <./images/final_abalation.jpg>] (main.bbl
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+9.
+
+(C:\Users\HP\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [14]
+[15]) [16] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7E540FC7BFC23CAA5AAEAC4A86C3ADA7;436.
  ) 
 Here is how much of TeX's memory you used:
- 26158 strings out of 467871
- 493346 string characters out of 5419828
- 940309 words of memory out of 5000000
- 54506 multiletter control sequences out of 15000+600000
- 649176 words of font info for 86 fonts, out of 8000000 for 9000
+ 26427 strings out of 467871
+ 499660 string characters out of 5419828
+ 938436 words of memory out of 5000000
+ 54726 multiletter control sequences out of 15000+600000
+ 722489 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,108p,1490b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt090
-0.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
-0600.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
-crm0700.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecti1000.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
-i600\ecbx1000.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1200.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
-/ec/dpi600\tcrm0900.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecti0900.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
-nappen/ec/dpi600\ecbx0900.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/ljf
-our/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi525\ecss0800.pk> <C:\Users\HP\AppData\Local\MiKTeX\fonts/
-pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk><C:/Users/HP/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/HP/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/HP/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/HP/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/HP/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/
-HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/U
-sers/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-<C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.
-pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 21166659 bytes).
+ 99i,14n,108p,1640b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><
+C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/
+Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx6.pfb><C:/User
+s/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/HP
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/HP/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/HP/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/HP/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/HP/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/HP/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/HP/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/HP/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/lm/lmr9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/lm/lmri10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/lm/lmri9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmss8.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/lm/lmsy10.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmsy7.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lm
+sy9.pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmtt9.
+pfb><C:/Users/HP/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symb
+ols/msbm10.pfb>
+Output written on main.pdf (16 pages, 21219601 bytes).
 PDF statistics:
- 844 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
+ 456 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

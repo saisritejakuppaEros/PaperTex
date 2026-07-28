@@ -14,6 +14,24 @@ Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
   X., Zheng, B., Zhong, H., Zhou, J., Zhou, F., Zhou, J., Zhu, Y., Zhu, K.:
   {Qwen3-VL} technical report. arXiv preprint arXiv:2511.21631  (2025)
 
+\bibitem{blackforestlabs2025flux2}
+{Black Forest Labs}: {FLUX.2}: Frontier visual intelligence (2025),
+  \url{https://bfl.ai/blog/flux-2}
+
+\bibitem{blackforestlabs2026flux2dev}
+{Black Forest Labs}: {FLUX.2} [dev] (2026),
+  \url{https://huggingface.co/black-forest-labs/FLUX.2-dev}
+
+\bibitem{caron2021dino}
+Caron, M., Touvron, H., Misra, I., J{\'e}gou, H., Mairal, J., Bojanowski, P.,
+  Joulin, A.: Emerging properties in self-supervised vision transformers. arXiv
+  preprint arXiv:2104.14294  (2021)
+
+\bibitem{xverse2024}
+Chen, B., Zhao, M., Sun, H., Chen, L., Wang, X., Du, K., Wu, X.: {XVerse}:
+  Consistent multi-subject control of identity and semantic attributes via
+  {DiT} modulation. arXiv preprint arXiv:2506.21416  (2025)
+
 \bibitem{dalva2025canvastoimage}
 Dalva, Y., Qian, G.G., Goldenberg, M., Chen, T.S., Aberman, K., Tulyakov, S.,
   Yanardag, P., Wang, K.C.J.: Canvas-to-image: Compositional image generation
@@ -37,6 +55,11 @@ Hertz, A., Mokady, R., Tenenbaum, J., Aberman, K., Pritch, Y., Cohen-Or, D.:
 Hu, E.J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L.,
   Chen, W.: {LoRA}: Low-rank adaptation of large language models. International
   Conference on Learning Representations  (2022)
+
+\bibitem{kirstain2023pickapic}
+Kirstain, Y., Polyak, A., Singer, U., Matiana, S., Penna, J., Levy, O.:
+  Pick-a-pic: An open dataset of user preferences for text-to-image generation.
+  In: Advances in Neural Information Processing Systems (2023)
 
 \bibitem{kumari2023multiconcept}
 Kumari, N., Zhang, B., Zhang, R., Shechtman, E., Zhu, J.Y.: Multi-concept
@@ -64,6 +87,11 @@ Lin, H., Chen, S., Liew, J.H., Chen, D.Y., Li, Z., Shi, G., Feng, J., Kang, B.:
   Depth anything 3: Recovering the visual space from any views. arXiv preprint
   arXiv:2511.10647  (2025)
 
+\bibitem{liu2022compositional}
+Liu, N., Li, S., Du, Y., Torralba, A., Tenenbaum, J.B.: Compositional visual
+  generation with composable diffusion models. In: European Conference on
+  Computer Vision. pp. 423--439 (2022)
+
 \bibitem{liu2023grounding}
 Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Li, C., Yang, J., Su,
   H., Zhu, J., et~al.: Grounding {DINO}: Marrying {DINO} with grounded
@@ -76,6 +104,12 @@ Mokady, R., Hertz, A., Aberman, K., Pritch, Y., Cohen-Or, D.: Null-text
   Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
   Recognition. pp. 6228--6238 (2023)
 
+\bibitem{radford2021clip}
+Radford, A., Kim, J.W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry,
+  G., Askell, A., Mishkin, P., Clark, J., Krueger, G., Sutskever, I.: Learning
+  transferable visual models from natural language supervision. In:
+  International Conference on Machine Learning (2021)
+
 \bibitem{ruiz2023dreambooth}
 Ruiz, N., Li, Y., Jampani, V., Pritch, Y., Rubinstein, M., Aberman, K.:
   {DreamBooth}: Fine tuning text-to-image diffusion models for subject-driven
@@ -85,14 +119,6 @@ Ruiz, N., Li, Y., Jampani, V., Pritch, Y., Rubinstein, M., Aberman, K.:
 \bibitem{tang2024creatilayout}
 Tang, H., et~al.: {CreatiLayout}: Siamese multimodal diffusion transformer for
   creative layout-to-image generation. arXiv preprint arXiv:2412.03859  (2024)
-
-\bibitem{omnigen2_2025}
-Team, O.: {OmniGen2}: Exploration to advanced multimodal generation. arXiv
-  preprint  (2025)
-
-\bibitem{xverse2024}
-Team, X.: {XVerse}: Controllable human image generation via cross-id and
-  cross-attribute disentanglement. arXiv preprint  (2024)
 
 \bibitem{tumanyan2023plug}
 Tumanyan, N., Geyer, M., Bagon, S., Dekel, T.: Plug-and-play diffusion features
@@ -108,9 +134,22 @@ Wang, Q., Bai, X., Wang, H., Qin, Z., Chen, A.: {InstantID}: Zero-shot
 Wang, X., et~al.: {MS-Diffusion}: Multi-subject zero-shot image personalization
   with layout guidance. arXiv preprint arXiv:2406.07209  (2024)
 
+\bibitem{omnigen2_2025}
+Wu, C., Zheng, P., Yan, R., Xiao, S., Luo, X., Wang, Y., Li, W., Jiang, X.,
+  Liu, Y., Zhou, J., Liu, Z., Xia, Z., Li, C., Deng, H., Wang, J., Luo, K.,
+  Zhang, B., Lian, D., Wang, X., Wang, Z., Huang, T., Liu, Z.: {OmniGen2}:
+  Exploration to advanced multimodal generation. arXiv preprint
+  arXiv:2506.18871  (2025)
+
 \bibitem{wu2025uno}
-Wu, M., et~al.: {UNO}: Boosting spatially-aware visual grounding via universal
-  negative objectives. arXiv preprint arXiv:2501.05243  (2025)
+Wu, S., Huang, M., Wu, W., Cheng, Y., Ding, F., He, Q.: Less-to-more
+  generalization: Unlocking more controllability by in-context generation. In:
+  Proceedings of the IEEE/CVF International Conference on Computer Vision
+  (2025)
+
+\bibitem{wu2024mole}
+Wu, X., Huang, S., Wei, F.: Mixture of {LoRA} experts. In: International
+  Conference on Learning Representations (2024)
 
 \bibitem{xiang2025instanceassemble}
 Xiang, Q., Sun, S., Li, B., Song, D., Li, H., Chen, N., Tang, X., Hu, Y.,
@@ -136,5 +175,11 @@ Zhang, L., Rao, A., Agrawala, M.: Adding conditional control to text-to-image
 Zhang, Y., et~al.: {EasyControl}: Transfer {ControlNet} to video diffusion for
   controllable generation and editing. In: Proceedings of the IEEE/CVF
   Conference on Computer Vision and Pattern Recognition (2025)
+
+\bibitem{zheng2023layoutdiffusion}
+Zheng, G., Zhou, X., Li, X., Qi, Z., Shan, Y., Li, X.: {LayoutDiffusion}:
+  Controllable diffusion model for layout-to-image generation. In: Proceedings
+  of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. pp.
+  22490--22499 (2023)
 
 \end{thebibliography}

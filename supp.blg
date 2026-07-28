@@ -5,44 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: splncs04.bst
 Reallocating 'name_of_file' (item size: 1) to 5 items.
 Database file #1: main.bib
-You've used 9 entries,
+You've used 19 entries,
             2850 wiz_defined-function locations,
-            723 strings with 8656 characters,
-and the built_in function-call counts, 8183 in all, are:
-= -- 522
-> -- 643
-< -- 1
-+ -- 259
-- -- 250
-* -- 639
-:= -- 1177
-add.period$ -- 10
-call.type$ -- 9
-change.case$ -- 160
+            765 strings with 10300 characters,
+and the built_in function-call counts, 12890 in all, are:
+= -- 863
+> -- 848
+< -- 2
++ -- 343
+- -- 324
+* -- 935
+:= -- 1821
+add.period$ -- 17
+call.type$ -- 19
+change.case$ -- 229
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 596
-empty$ -- 501
-format.name$ -- 259
-if$ -- 1592
+cite$ -- 19
+duplicate$ -- 1006
+empty$ -- 925
+format.name$ -- 339
+if$ -- 2577
 int.to.chr$ -- 0
-int.to.str$ -- 9
-missing$ -- 180
-newline$ -- 33
-num.names$ -- 18
-pop$ -- 382
+int.to.str$ -- 19
+missing$ -- 271
+newline$ -- 63
+num.names$ -- 38
+pop$ -- 597
 preamble$ -- 1
-purify$ -- 141
+purify$ -- 197
 quote$ -- 0
-skip$ -- 102
+skip$ -- 205
 stack$ -- 0
-substring$ -- 165
-swap$ -- 361
-text.length$ -- 1
+substring$ -- 345
+swap$ -- 550
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 76
 warning$ -- 0
-while$ -- 30
-width$ -- 10
-write$ -- 87
+while$ -- 63
+width$ -- 21
+write$ -- 175

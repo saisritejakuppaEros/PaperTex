@@ -21,8 +21,8 @@ pdflatex -interaction=nonstopmode main.tex
 
 
 
-
 cd E:\teja\refcompose_paper\RefComposeECCV
+
 
 # Main paper
 pdflatex -interaction=nonstopmode main.tex
@@ -30,8 +30,10 @@ bibtex main
 pdflatex -interaction=nonstopmode main.tex
 pdflatex -interaction=nonstopmode main.tex
 
+
 # Supplementary material
 pdflatex -interaction=nonstopmode supp.tex
 bibtex supp
 pdflatex -interaction=nonstopmode supp.tex
 pdflatex -interaction=nonstopmode supp.tex
+

@@ -1,10 +1,16 @@
 \documentclass[runningheads]{llncs}
 
+% Fix ligature copy-paste / PDF text extraction
+\input{glyphtounicode}
+\pdfgentounicode=1
+
 % TODO REVIEW: Insert your submission number below by replacing '*****'
 % TODO FINAL: Comment out the following line for the camera-ready version
-\usepackage[review,year=2026,ID=*****]{eccv}
+\usepackage[review,year=2026,ID=8]{eccv}
 % TODO FINAL: Un-comment the following line for the camera-ready version
 %\usepackage{eccv}
+
+\usepackage{lmodern}
 
 \usepackage{eccvabbrv}
 \usepackage{graphicx}
@@ -51,7 +57,7 @@ The main paper focuses on Dense Layout quantitative evaluation on InstanceAssemb
 \begin{enumerate}
   \item \textbf{Layout-centric benchmarks} (Section~\ref{sec:layout_eval}) comparing the prompt-induced spatial layout stage against dedicated layout generators on COCO-GR~\cite{feng2024layoutgpt} numerical and spatial reasoning splits.
   \item \textbf{Extended ablation study} (Section~\ref{sec:ablation}) with quantitative metrics complementing the qualitative analysis in the main paper.
-  \item \textbf{Training data details} (Section~\ref{sec:dataset}) referenced from the main experiments section.
+  \item \textbf{Training data details} (Section~\ref{sec:dataset}), including the synthetic dataset preparation pipeline, referenced from the main experiments section.
 \end{enumerate}
 Throughout, multiple visual references are composed under a single scene prompt without annotated bounding boxes or per-reference token scaling.
 
@@ -61,7 +67,7 @@ Throughout, multiple visual references are composed under a single scene prompt 
 % ------------------------------------------------------------------
 
 We situate the spatial layout stage of RefCompose in the broader layout-generation literature by comparing against LayoutGPT~\cite{feng2024layoutgpt} and Lay-Your-Scene~\cite{srivastava2025layyourscene} on COCO-GR~\cite{feng2024layoutgpt} numerical and spatial reasoning splits.
-RefCompose first induces a coarse composition with a frozen text-to-image model (Flux~\cite{esser2024flux}) and then extracts object boxes with Grounding DINO~\cite{liu2023grounding}.
+RefCompose first induces a coarse composition with a frozen text-to-image model (Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev}) and then extracts object boxes with Grounding DINO~\cite{liu2023grounding}.
 
 \paragraph{Metrics.}
 \textbf{L-FID} evaluates layout realism by rendering predicted layouts as colour-coded object maps and computing an FID-style distance to ground-truth layouts~\cite{heusel2017fid}; lower is better.
@@ -72,7 +78,7 @@ For \emph{spatial reasoning}, accuracy measures whether predicted boxes satisfy 
 \paragraph{Results.}
 Table~\ref{tab:layout_lfid} reports layout quality; Table~\ref{tab:layout_reasoning} reports numerical and spatial reasoning.
 RefCompose attains the best L-FID and spatial accuracy among compared methods.
-We attribute this to inverse layout construction: a large pretrained text-to-image model~\cite{esser2024flux} first produces an aesthetically composed scene, after which boxes are recovered from visible object support.
+We attribute this to inverse layout construction: a large pretrained text-to-image model~\cite{blackforestlabs2026flux2dev} first produces an aesthetically composed scene, after which boxes are recovered from visible object support.
 Unlike LLM planners that reason symbolically~\cite{feng2024layoutgpt}, or layout diffusion transformers trained on narrower layout corpora~\cite{srivastava2025layyourscene}, the T2I prior encodes broad composition statistics from large-scale pretraining; sharper extracted boxes then improve downstream canvas placement and image-level spatial compliance.
 
 \begin{table}[t]
@@ -123,8 +129,8 @@ Unlike LLM planners that reason symbolically~\cite{feng2024layoutgpt}, or layout
 \label{sec:ablation}
 % ------------------------------------------------------------------
 
-The main paper presents a qualitative ablation of the reference canvas and depth prior (Figure~7 in the main document).
-Table~\ref{tab:ablation} reports the corresponding quantitative results on the Dense Layout test split~\cite{xiang2025instanceassemble}, using the same evaluation protocol as Table~2 in the main paper.
+The main paper presents a qualitative ablation of the reference canvas and Depth Anything~3~\cite{depthanything3} depth prior (Figure~7 in the main document).
+Table~\ref{tab:ablation} reports the corresponding quantitative results on the Dense Layout test split~\cite{xiang2025instanceassemble}, using the same evaluation protocol as Table~2 in the main paper (DINO~\cite{caron2021dino} for composition and reference consistency).
 
 \begin{table}[t]
   \centering
@@ -161,8 +167,8 @@ Table~\ref{tab:ablation} reports the corresponding quantitative results on the D
 \end{table}
 
 \paragraph{Discussion.}
-Removing the \emph{reference canvas} causes the largest drop on Color, Texture, DINO$_{\text{refs}}$, and CLIP-I---appearance-centric signals---while Spatial remains relatively high because the depth prior still constrains placement.
-The model then infers appearance from text alone, landing near the CreatiLayout/InstanceAssemble range on photometric metrics.
+Removing the \emph{reference canvas} causes the largest drop on Color, Texture, DINO$_{\text{refs}}$, and CLIP-I (appearance-centric signals), while Spatial remains relatively high because the depth prior still constrains placement.
+The model then infers appearance from text alone, landing near the CreatiLayout/InstanceAssemble~\cite{tang2024creatilayout,xiang2025instanceassemble} range on photometric metrics.
 CLIP-T increases slightly, mirroring the text-alignment trade-off discussed in the main paper.
 
 Removing the \emph{depth prior} causes the largest drop on Spatial and Shape, reflecting degraded placement and occlusion reasoning, while Color, Texture, and DINO$_{\text{refs}}$ remain closer to the full model since the canvas still supplies appearance.
@@ -174,23 +180,33 @@ Together, these results confirm that canvas and depth provide complementary, dis
 \label{sec:dataset}
 % ------------------------------------------------------------------
 
-As noted in the main paper, RefCompose is trained on a mixture of proprietary cinematic imagery and synthetic composites.
+As noted in the main paper, RefCompose is trained on a mixture of a private movie dataset and synthetic composites.
 
 \paragraph{Real data.}
-We curate ultra high-resolution movie frames at $1280 \times 720$ from a proprietary catalogue.
+We curate ultra high-resolution movie frames at $1280 \times 720$ from a private dataset sourced from movies.
 Object references are canonicalized to neutral pose and lighting to reduce spurious correlations between scene context and subject appearance.
-The five-stage pipeline described in the main paper (Qwen3-VL~\cite{qwen3vl} enumeration, Grounding DINO~\cite{liu2023grounding} localisation, Flux~\cite{esser2024flux} canonicalization, DINO filtering, and re-annotation) yields approximately $50{,}000$ samples from $1{,}000$ distinct films.
+The five-stage pipeline described in the main paper (Qwen3-VL~\cite{qwen3vl} enumeration, Grounding DINO~\cite{liu2023grounding} localisation, Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev} canonicalization, DINO~\cite{caron2021dino} filtering, and re-annotation) yields approximately $50{,}000$ samples from $1{,}000$ distinct films.
 
 \paragraph{Synthetic data.}
-We complement real frames with synthetic composites generated using Flux~2.0~\cite{esser2024flux}.
-Synthetic scenes emphasise diverse object positions, scales, and orientations that are underrepresented in canonicalized movie crops, while real data supplies richer textures and identity cues.
-Each synthetic sample follows the same annotation protocol as real data: detected crops, neutral-pose canonicalization, DINO similarity filtering ($>0.90$), and dual-level Qwen3-VL~\cite{qwen3vl} captions.
-This mixture encourages the model to generalise spatial composition beyond studio lighting and fixed poses without sacrificing photometric fidelity on in-domain cinematic content.
+We complement real cinematic frames with synthetically generated composites that expose the model to diverse spatial arrangements, lighting conditions, object interactions, and viewpoint configurations underrepresented in canonicalized movie crops.
+The preparation pipeline is described below; together with real data, this mixture encourages generalisation beyond studio lighting and fixed poses without sacrificing photometric fidelity on in-domain cinematic content.
+
+\paragraph{Synthetic dataset preparation pipeline.}
+Our synthetic data pipeline consists of two stages: an upstream \emph{generation} stage and a downstream \emph{conditioning} stage.
+In the generation stage, we sample three independent external reference images per scene (a background, a face portrait, and an object photo), avoiding self-reconstruction collages by never cropping references from the ground-truth image itself.
+Reference images are drawn from diverse, in-the-wild sources rather than our private movie dataset, which is intentionally skewed toward Indic cultural elements; for this generic counterpart, face portraits are sampled from the Celebrity-1000 dataset~\cite{tonyassi2024celebrity1000}, while landmark and object references are sampled from the culturally diverse image collection introduced by Kannen et al.~\cite{kannen2024beyond}, giving broader geographic and cultural coverage than the private movie dataset alone.
+Each reference is described using Qwen3-VL~\cite{qwen3vl}, and the resulting descriptions are composed into a unified scene prompt spanning four scenario categories (normal, lighting, interaction, and position).
+These prompts, together with the reference images, condition a FLUX.2 model~\cite{blackforestlabs2025flux2} to synthesize the ground-truth target image at $1280 \times 720$ resolution.
+As a final verification step, we use Qwen3-VL~\cite{qwen3vl} as an automatic judge to check whether each sampled reference is faithfully present in the composed target image; samples in which references are missing or inconsistently rendered are discarded, while the remainder are retained for downstream conditioning.
+Based on empirical insights from this verification stage, we cap the number of composed reference objects per scene at three, which we find sufficient for reliable presence-checking while keeping scene composition tractable.
+In the downstream stage, we prepare RefCompose training samples by first extracting RGBA cutouts of each verified reference via RMBG-1.4~\cite{bria2024rmbg} background removal, then estimating spatial layout through a hybrid approach combining Diffusion Features (DIFT)~\cite{tang2023emergent} correspondence matching from a Stable Diffusion~\cite{rombach2022ldm} U-Net with heuristic bounding-box priors as fallback.
+These cutouts are composited onto a black canvas at their estimated locations, subject to area constraints (background $\leq 100\%$, person $\leq 20\%$, object $\leq 8\%$), while a monocular depth map is independently predicted from the ground-truth image using Depth Anything~3~\cite{depthanything3}.
+The resulting canvas and depth conditioning signals, alongside the text prompt and ground-truth image, are exported into a training manifest for LoRA~\cite{hu2022lora} fine-tuning.
 
 \paragraph{Training schedule.}
-LoRA training proceeds in three stages over $50{,}000$ iterations at $1280 \times 720$, as summarised in the main paper:
+LoRA~\cite{hu2022lora} training proceeds in three stages over $50{,}000$ iterations at $1280 \times 720$, as summarised in the main paper:
 (1)~depth-only warm-up on a black canvas ($10{,}000$ iterations);
-(2)~appearance grounding with crops placed at Grounding DINO boxes on ground-truth images ($20{,}000$ iterations);
+(2)~appearance grounding with crops placed at Grounding DINO~\cite{liu2023grounding} boxes on ground-truth images ($20{,}000$ iterations);
 (3)~robustness fine-tuning with photometric jitter and mild spatial perturbations (remaining iterations).
 Rank $r{=}32$ low-rank adapters are injected into double-stream attention blocks following EasyControl~\cite{zhang2025easycontrol}.
 
