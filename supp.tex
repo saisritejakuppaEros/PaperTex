@@ -1,0 +1,202 @@
+\documentclass[runningheads]{llncs}
+
+% TODO REVIEW: Insert your submission number below by replacing '*****'
+% TODO FINAL: Comment out the following line for the camera-ready version
+\usepackage[review,year=2026,ID=*****]{eccv}
+% TODO FINAL: Un-comment the following line for the camera-ready version
+%\usepackage{eccv}
+
+\usepackage{eccvabbrv}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{placeins}
+
+\usepackage[accsupp]{axessibility}
+
+% TODO FINAL: Comment out the following line for the camera-ready version
+%\usepackage[pagebackref,breaklinks,colorlinks,citecolor=eccvblue]{hyperref}
+% TODO FINAL: Un-comment the following line for the camera-ready version
+\usepackage{hyperref}
+
+% Supplementary numbering convention
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\begin{document}
+
+\title{Supplementary Material:\\RefCompose: Multi-Reference Image Generation via LoRA-Conditioned Diffusion}
+
+\titlerunning{Supplementary Material: RefCompose}
+
+\author{First Author\inst{1} \and
+Second Author\inst{2,3} \and
+Third Author\inst{3}}
+
+\authorrunning{F.~Author et al.}
+
+\institute{Princeton University, Princeton NJ 08544, USA \and
+Springer Heidelberg, Tiergartenstr.~17, 69121 Heidelberg, Germany \and
+ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany}
+
+\maketitle
+
+% ------------------------------------------------------------------
+\section{Overview}
+\label{sec:overview}
+% ------------------------------------------------------------------
+
+This supplementary document accompanies the main ECCV workshop paper on \textbf{RefCompose}.
+The main paper focuses on Dense Layout quantitative evaluation on InstanceAssemble~\cite{xiang2025instanceassemble}; here we provide:
+\begin{enumerate}
+  \item \textbf{Layout-centric benchmarks} (Section~\ref{sec:layout_eval}) comparing the prompt-induced spatial layout stage against dedicated layout generators on COCO-GR~\cite{feng2024layoutgpt} numerical and spatial reasoning splits.
+  \item \textbf{Extended ablation study} (Section~\ref{sec:ablation}) with quantitative metrics complementing the qualitative analysis in the main paper.
+  \item \textbf{Training data details} (Section~\ref{sec:dataset}) referenced from the main experiments section.
+\end{enumerate}
+Throughout, multiple visual references are composed under a single scene prompt without annotated bounding boxes or per-reference token scaling.
+
+% ------------------------------------------------------------------
+\section{Layout-Centric Evaluation}
+\label{sec:layout_eval}
+% ------------------------------------------------------------------
+
+We situate the spatial layout stage of RefCompose in the broader layout-generation literature by comparing against LayoutGPT~\cite{feng2024layoutgpt} and Lay-Your-Scene~\cite{srivastava2025layyourscene} on COCO-GR~\cite{feng2024layoutgpt} numerical and spatial reasoning splits.
+RefCompose first induces a coarse composition with a frozen text-to-image model (Flux~\cite{esser2024flux}) and then extracts object boxes with Grounding DINO~\cite{liu2023grounding}.
+
+\paragraph{Metrics.}
+\textbf{L-FID} evaluates layout realism by rendering predicted layouts as colour-coded object maps and computing an FID-style distance to ground-truth layouts~\cite{heusel2017fid}; lower is better.
+For \emph{numerical reasoning}, precision, recall, and accuracy measure whether the predicted object set matches the prompt-specified objects.
+\textbf{Numerical GLIP-Accuracy} checks whether the requested object counts appear in the generated image~\cite{li2022glip}.
+For \emph{spatial reasoning}, accuracy measures whether predicted boxes satisfy relations such as \emph{left}, \emph{right}, \emph{above}, or \emph{below}; \textbf{spatial GLIP-Accuracy} checks whether those relations remain visible after image generation~\cite{li2022glip}.
+
+\paragraph{Results.}
+Table~\ref{tab:layout_lfid} reports layout quality; Table~\ref{tab:layout_reasoning} reports numerical and spatial reasoning.
+RefCompose attains the best L-FID and spatial accuracy among compared methods.
+We attribute this to inverse layout construction: a large pretrained text-to-image model~\cite{esser2024flux} first produces an aesthetically composed scene, after which boxes are recovered from visible object support.
+Unlike LLM planners that reason symbolically~\cite{feng2024layoutgpt}, or layout diffusion transformers trained on narrower layout corpora~\cite{srivastava2025layyourscene}, the T2I prior encodes broad composition statistics from large-scale pretraining; sharper extracted boxes then improve downstream canvas placement and image-level spatial compliance.
+
+\begin{table}[t]
+  \centering
+  \caption{Layout quality on COCO-GR~\cite{feng2024layoutgpt} (lower L-FID is better).}
+  \label{tab:layout_lfid}
+  \setlength{\tabcolsep}{8pt}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Method} & \textbf{L-FID}$\downarrow$ \\
+    \midrule
+    LayoutGPT~\cite{feng2024layoutgpt} & 3.51 \\
+    Lay-Your-Scene~\cite{srivastava2025layyourscene} & 3.07 \\
+    RefCompose (spatial layout) & \textbf{2.98} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}[t]
+  \centering
+  \caption{Numerical and spatial reasoning on COCO-GR~\cite{feng2024layoutgpt}.
+  GLIP-Accuracy measures image-level count/spatial compliance~\cite{li2022glip}.}
+  \label{tab:layout_reasoning}
+  \resizebox{\linewidth}{!}{%
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{lcccccc}
+    \toprule
+    & \multicolumn{4}{c}{\textbf{Numerical Reasoning}}
+    & \multicolumn{2}{c}{\textbf{Spatial Reasoning}} \\
+    \cmidrule(lr){2-5} \cmidrule(lr){6-7}
+    \textbf{Method}
+    & Prec.$\uparrow$ & Recall$\uparrow$ & Acc.$\uparrow$ & GLIP$\uparrow$
+    & Acc.$\uparrow$ & GLIP$\uparrow$ \\
+    \midrule
+    LayoutGPT~\cite{feng2024layoutgpt}
+      & 76.29 & 86.64 & 76.72 & 54.25 & 87.07 & 56.89 \\
+    Lay-Your-Scene~\cite{srivastava2025layyourscene}
+      & 77.62 & 99.23 & 95.14 & 56.20 & 92.58 & 58.94 \\
+    RefCompose (spatial layout)
+      & \textbf{78.21} & \textbf{99.25} & \textbf{96.41} & \textbf{56.29} & \textbf{93.13} & \textbf{59.39} \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+% ------------------------------------------------------------------
+\section{Extended Ablation Study}
+\label{sec:ablation}
+% ------------------------------------------------------------------
+
+The main paper presents a qualitative ablation of the reference canvas and depth prior (Figure~7 in the main document).
+Table~\ref{tab:ablation} reports the corresponding quantitative results on the Dense Layout test split~\cite{xiang2025instanceassemble}, using the same evaluation protocol as Table~2 in the main paper.
+
+\begin{table}[t]
+  \centering
+  \caption{Ablation study evaluating the contributions of the reference canvas and depth prior.
+  The full model consistently achieves the best performance across identity preservation, spatial arrangement, and semantic alignment metrics.}
+  \label{tab:ablation}
+  \resizebox{\linewidth}{!}{%
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{lccccccccc}
+    \toprule
+    \textbf{Configuration}
+    & \textbf{Spatial}$\uparrow$
+    & \textbf{Color}$\uparrow$
+    & \textbf{Texture}$\uparrow$
+    & \textbf{Shape}$\uparrow$
+    & \textbf{PICK}$\uparrow$
+    & \textbf{DINO}$\uparrow$
+    & \textbf{DINO$_{\text{refs}}$}$\uparrow$
+    & \textbf{CLIP-I}$\uparrow$
+    & \textbf{CLIP-T}$\uparrow$ \\
+    \midrule
+    Full model (canvas + depth, dual LoRA)
+      & \textbf{0.908} & \textbf{0.826} & \textbf{0.854} & \textbf{0.849}
+      & \textbf{0.229} & \textbf{0.959} & \textbf{0.613} & \textbf{0.766} & 0.327 \\
+    w/o reference canvas (text-only appearance)
+      & 0.861 & 0.542 & 0.571 & 0.558
+      & 0.224 & 0.712 & 0.471 & 0.702 & \textbf{0.334} \\
+    w/o depth prior (canvas only, no structure)
+      & 0.683 & 0.781 & 0.809 & 0.612
+      & 0.221 & 0.798 & 0.587 & 0.741 & 0.310 \\
+    \bottomrule
+  \end{tabular}%
+  }
+\end{table}
+
+\paragraph{Discussion.}
+Removing the \emph{reference canvas} causes the largest drop on Color, Texture, DINO$_{\text{refs}}$, and CLIP-I---appearance-centric signals---while Spatial remains relatively high because the depth prior still constrains placement.
+The model then infers appearance from text alone, landing near the CreatiLayout/InstanceAssemble range on photometric metrics.
+CLIP-T increases slightly, mirroring the text-alignment trade-off discussed in the main paper.
+
+Removing the \emph{depth prior} causes the largest drop on Spatial and Shape, reflecting degraded placement and occlusion reasoning, while Color, Texture, and DINO$_{\text{refs}}$ remain closer to the full model since the canvas still supplies appearance.
+This matches the qualitative observation in the main paper that subjects such as the bat and bed remain recognizable, but their arrangement becomes contextually implausible.
+Together, these results confirm that canvas and depth provide complementary, disentangled signals for appearance and structure.
+
+% ------------------------------------------------------------------
+\section{Training Data Details}
+\label{sec:dataset}
+% ------------------------------------------------------------------
+
+As noted in the main paper, RefCompose is trained on a mixture of proprietary cinematic imagery and synthetic composites.
+
+\paragraph{Real data.}
+We curate ultra high-resolution movie frames at $1280 \times 720$ from a proprietary catalogue.
+Object references are canonicalized to neutral pose and lighting to reduce spurious correlations between scene context and subject appearance.
+The five-stage pipeline described in the main paper (Qwen3-VL~\cite{qwen3vl} enumeration, Grounding DINO~\cite{liu2023grounding} localisation, Flux~\cite{esser2024flux} canonicalization, DINO filtering, and re-annotation) yields approximately $50{,}000$ samples from $1{,}000$ distinct films.
+
+\paragraph{Synthetic data.}
+We complement real frames with synthetic composites generated using Flux~2.0~\cite{esser2024flux}.
+Synthetic scenes emphasise diverse object positions, scales, and orientations that are underrepresented in canonicalized movie crops, while real data supplies richer textures and identity cues.
+Each synthetic sample follows the same annotation protocol as real data: detected crops, neutral-pose canonicalization, DINO similarity filtering ($>0.90$), and dual-level Qwen3-VL~\cite{qwen3vl} captions.
+This mixture encourages the model to generalise spatial composition beyond studio lighting and fixed poses without sacrificing photometric fidelity on in-domain cinematic content.
+
+\paragraph{Training schedule.}
+LoRA training proceeds in three stages over $50{,}000$ iterations at $1280 \times 720$, as summarised in the main paper:
+(1)~depth-only warm-up on a black canvas ($10{,}000$ iterations);
+(2)~appearance grounding with crops placed at Grounding DINO boxes on ground-truth images ($20{,}000$ iterations);
+(3)~robustness fine-tuning with photometric jitter and mild spatial perturbations (remaining iterations).
+Rank $r{=}32$ low-rank adapters are injected into double-stream attention blocks following EasyControl~\cite{zhang2025easycontrol}.
+
+\FloatBarrier
+
+\bibliographystyle{splncs04}
+\bibliography{main}
+
+\end{document}

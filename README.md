@@ -9,6 +9,7 @@
 
 ## Instructions
 - Modify the example document `main.tex` following the instructions therein
+- Supplementary material is in `supp.tex` (separate PDF; shares `main.bib`)
 - Please make sure to look at all `TODO REVIEW` and `TODO FINAL` comments, which provide important instructions and todos for the review and camera-ready versions, respectively
 - Either compile with `pdflatex` as
 
@@ -16,6 +17,13 @@
         bibtex main
         pdflatex main
         pdflatex main
+
+    For the supplementary:
+
+        pdflatex supp
+        bibtex supp
+        pdflatex supp
+        pdflatex supp
 
     or compile with plain `latex` as
 

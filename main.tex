@@ -49,6 +49,8 @@
 % Support for ORCID icon
 \usepackage{orcidlink}
 
+% Notation (reference set $\mathcal{R}$ vs.\ LoRA rank $r$; depth map $D_s$ vs.\ scalar $\bar{d}_k$)
+\newcommand{\AdaptW}{\Delta W_s + \Delta W_a}
 
 \begin{document}
 
@@ -88,7 +90,7 @@ ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
 
 \begin{center}
   \includegraphics[width=\linewidth]{images/final_abstract_compressed.png}
-  \captionof{figure}{Existing approaches suffer from memory overhead scaling linearly with reference count, cultural fidelity gaps, or inability to preserve subject appearance without bounding-box supervision. RefCompose resolves these via a fixed-resolution reference canvas encoding arbitrary references at constant token cost, and layout induced directly from a structured text prompt via dense visual cues.}
+  \captionof{figure}{Existing approaches suffer from memory overhead scaling linearly with reference count and inability to preserve subject appearance without bounding-box supervision. RefCompose resolves these via a fixed-resolution reference canvas encoding arbitrary references at constant token cost, and layout induced directly from a structured text prompt via dense visual cues.}
   \label{fig:conceptdiagram}
 \end{center}
 
@@ -182,7 +184,7 @@ Both signals are injected into a frozen diffusion transformer via decoupled LoRA
 
 \paragraph{Notation.}
 Let $\mathcal{R} = \{I_1, \ldots, I_N\}$ be $N$ RGB references, $\mathbf{p}$ an object-centric prompt with positional language, and $(H,W)$ the output resolution.
-$\mathcal{F}_\theta$ is the frozen diffusion transformer; $\mathcal{E}, \mathcal{E}^{-1}$ the VAE encoder/decoder.
+$\mathcal{F}_\theta$ is the frozen diffusion transformer under $T{=}40$ flow-matching steps; $\mathcal{E}, \mathcal{E}^{-1}$ the VAE encoder/decoder; and $r$ the LoRA rank (distinct from the reference set $\mathcal{R}$).
 
 %----------------------------------------------------------
 \subsection{Prompt-Induced Layout Generation}
@@ -200,7 +202,7 @@ Open-vocabulary detector $\mathcal{G}$ (Grounding DINO~\cite{liu2023grounding}) 
   \mathcal{B} = \mathcal{G}(L) = \{b_1, \ldots, b_N\}, \quad b_k = (x_k, y_k, w_k, h_k),
 \end{equation}
 where $b_k$ is the region assigned to reference $I_k$.
-Because depth $\mathcal{D}_s=\Psi(L)$ (Section~\ref{sec:depth}) and canvas assembly (Section~\ref{sec:canvas}) both read from the same $L$ and $\mathcal{B}$, geometric and appearance conditioning share one spatial frame---avoiding misalignment that would arise if layout, boxes, and depth were computed independently.
+Because depth $D_s=\Psi(L)$ (Section~\ref{sec:depth}) and canvas assembly (Section~\ref{sec:canvas}) both read from the same $L$ and $\mathcal{B}$, geometric and appearance conditioning share one spatial frame---avoiding misalignment that would arise if layout, boxes, and depth were computed independently.
 
 %----------------------------------------------------------
 \subsection{Reference Canvas Representation}
@@ -226,11 +228,11 @@ Thus $|z_{\mathcal{C}}| = \text{const}$ for all $N$, versus sequential schemes c
 %----------------------------------------------------------
 Compositing alone lacks depth ordering, surface orientation, and occlusion cues needed for 3D plausibility. We estimate a monocular depth map from the layout image:
 \begin{equation}
-  \mathcal{D}_s = \Psi(L) \in \mathbb{R}^{H \times W},
+  D_s = \Psi(L) \in \mathbb{R}^{H \times W},
 \end{equation}
-using Depth Anything 3~\cite{depthanything3}. Deriving $\mathcal{D}_s$ from $L$ (rather than the references) ensures $L$, $\mathcal{B}$, $\mathcal{D}_s$ share an exact spatial frame. Since $\Psi$ runs on generated layouts, not real photos, we treat its output as a relative geometric prior, not metric ground truth.
+using Depth Anything 3~\cite{depthanything3}. Deriving $D_s$ from $L$ (rather than the references) ensures $L$, $\mathcal{B}$, and $D_s$ share an exact spatial frame. Since $\Psi$ runs on generated layouts, not real photos, we treat its output as a relative geometric prior, not metric ground truth.
 
-For each reference $k$, we compute mean depth $\bar{d}_k = \mathrm{mean}(\mathcal{D}_s \mid b_k)$ and sort far-to-near as permutation $\pi$. The canvas is assembled by sequential overwrite compositing:
+For each reference $k$, we compute mean depth $\bar{d}_k = \mathrm{mean}(D_s \mid b_k)$ and sort far-to-near as permutation $\pi$. The canvas is assembled by sequential overwrite compositing:
 \begin{equation}
   \mathcal{C} =
   \mathrm{Paste}\!\left(
@@ -240,16 +242,16 @@ For each reference $k$, we compute mean depth $\bar{d}_k = \mathrm{mean}(\mathca
 \end{equation}
 overwriting overlaps with the nearer reference — a practical ordering signal, not an infallible occlusion oracle.
 
-$\mathcal{D}_s$ is VAE-encoded for compatibility with latent denoising:
+$D_s$ is VAE-encoded for compatibility with latent denoising:
 \begin{equation}
-  z_{\mathcal{D}} = \mathcal{E}(\mathcal{D}_s) \in \mathbb{R}^{h \times w \times c},
+  z_{D_s} = \mathcal{E}(D_s) \in \mathbb{R}^{(H/f) \times (W/f) \times c},
 \end{equation}
 carrying occlusion order, surface orientation, and spatial extent in a form commensurate with $z_{\mathcal{C}}$.
 
 %----------------------------------------------------------
 \subsection{Decoupled Structure--Appearance (DSA) LoRA}
 %----------------------------------------------------------
-Naively concatenating $z_{\mathcal{D}}$ and $z_{\mathcal{C}}$ lets depth features leak into appearance and vice versa. We instead route each through a dedicated low-rank module.
+Naively concatenating $z_{D_s}$ and $z_{\mathcal{C}}$ lets depth features leak into appearance and vice versa. We instead route each through a dedicated low-rank module.
 
 For frozen projection $W \in \mathbb{R}^{d_{\mathrm{out}} \times d_{\mathrm{in}}}$ in the double-stream attention blocks, each LoRA branch learns:
 \begin{equation}
@@ -258,22 +260,20 @@ For frozen projection $W \in \mathbb{R}^{d_{\mathrm{out}} \times d_{\mathrm{in}}
   B_m \in \mathbb{R}^{d_{\mathrm{out}} \times r}, \quad
   m \in \{s,a\},
 \end{equation}
-with $s$ the structure branch ($z_{\mathcal{D}}$) and $a$ the appearance branch ($z_{\mathcal{C}}$). Effective projection: $W + \Delta W_s + \Delta W_a$, base $W$ frozen.
+with rank $r$, $s$ the structure branch ($z_{D_s}$), and $a$ the appearance branch ($z_{\mathcal{C}}$). Effective projection: $W + \Delta W_s + \Delta W_a$, base $W$ frozen.
 
-Since Flux-style DiTs use flow-matching, denoising is scheduler-agnostic.
-Starting from terminal latent $z_T$, the sampler integrates the velocity
-field over the scheduler time grid to obtain
+Starting from terminal latent $z_T$, flow-matching sampling yields
 \begin{equation}
   \hat{z}_0 = \mathcal{F}_\theta\bigl(\mathbf{p}, z_T, z_{\mathcal{C}},
-  z_{\mathcal{D}}; \AdaptW\bigr),
+  z_{D_s}; \AdaptW\bigr), \quad T{=}40,
 \end{equation}
-where $\mathbf{p}$ provides semantic grounding, $z_{\mathcal{D}}$ the
+where $\mathbf{p}$ provides semantic grounding, $z_{D_s}$ the
 geometric scaffold, and $z_{\mathcal{C}}$ localised appearance, and
 \begin{equation}
-  v_\theta\bigl(z_t, t, \mathbf{p}, z_{\mathcal{C}}, z_{\mathcal{D}};
+  v_\theta\bigl(z_t, t, \mathbf{p}, z_{\mathcal{C}}, z_{D_s};
   \AdaptW\bigr)
 \end{equation}
-denotes the learned velocity at denoising step~$t$. Output via VAE decoding:
+denotes the learned velocity at step~$t$. Output via VAE decoding:
 \begin{equation}
   \hat{I} = \mathcal{E}^{-1}(\hat{z}_0) \in \mathbb{R}^{H \times W \times 3}.
 \end{equation}
@@ -324,7 +324,7 @@ We evaluate on the \emph{Dense Layout} test split of InstanceAssemble~\cite{xian
 All metrics in Tables~\ref{tab:memory} and~\ref{tab:quant_results} are computed on this split unless stated otherwise.
 
 \paragraph{Evaluation protocol and GPU memory.}
-All methods run on a single NVIDIA H100 at \(1280 \times 720\) using the prompt template from Section~\ref{sec:layout-gen}. We select five object crops per image from the largest ground-truth boxes by area, canonicalize each via Flux~2.0 Dev (neutral pose/lighting), and generate scene prompts with Qwen3-VL~\cite{qwen3vl}, ensuring all methods receive identical textual and visual information. CreatiLayout and InstanceAssemble~\cite{xiang2025instanceassemble} receive only Dense Layout boxes and text; UNO~\cite{wu2025uno}, XVerse~\cite{xverse2024}, and RefCompose additionally receive the canonicalized reference crops. Region-wise metrics use object localizations from Grounding DINO~\cite{liu2023grounding}. As Table~\ref{tab:memory} shows, token-based methods grow in memory with reference count and go out-of-memory at \(N=6\), while RefCompose stays approximately constant via canvas compression. Baselines are thus reported at \(N=5\), with Table~\ref{tab:quant_results} also reporting RefCompose at \(N>5\) to demonstrate scalability without added memory cost.
+All methods run on a single NVIDIA H100 at \(1280 \times 720\) using the prompt template from Section~\ref{sec:layout-gen}. We select five object crops per image from the largest ground-truth boxes by area, canonicalize each via Flux~2.0 Dev (neutral pose/lighting), and generate scene prompts with Qwen3-VL~\cite{qwen3vl}, ensuring all methods receive identical textual and visual information. CreatiLayout and InstanceAssemble~\cite{xiang2025instanceassemble} receive only Dense Layout boxes and text; UNO~\cite{wu2025uno}, XVerse~\cite{xverse2024}, and RefCompose additionally receive the canonicalized reference crops. Among all baselines, UNO and XVerse are the most architecturally compatible with RefCompose and achieve the strongest reference-image performance, so we benchmark primarily against them. Region-wise metrics use object localizations from Grounding DINO~\cite{liu2023grounding}. As Table~\ref{tab:memory} shows, token-based methods grow in memory with reference count and go out-of-memory at \(N=6\), while RefCompose stays approximately constant via canvas compression. Baselines are thus reported at \(N=5\), with Table~\ref{tab:quant_results} also reporting RefCompose at \(N>5\) to demonstrate scalability without added memory cost.
 
 Following LayoutSAM-Eval~\cite{xiang2025instanceassemble}, we report \emph{region-wise} quality (Spatial, Color, Texture, Shape — placement accuracy and appearance/structure fidelity) and \emph{global-wise} quality (PICK, CLIP-T for image-text alignment; DINO for composition similarity; DINO$_{\text{refs}}$ for reference consistency; CLIP-I for image-level similarity). Higher is better throughout.
 
@@ -432,6 +432,8 @@ Figure~\ref{fig:teaser} corroborates the quantitative trends across seven multi-
 CreatiLayout and InstanceAssemble place objects coherently from boxes and text but hallucinate colour, texture, and identity, especially for distinctive materials where language is a poor substitute for pixels.
 UNO~\cite{wu2025uno} and XVerse~\cite{xverse2024} transfer some reference appearance yet show subject drift and softened fine detail under multi-object layouts in our qualitative examples.
 RefCompose composites references at full resolution on a shared canvas and conditions denoising with an aligned depth map, yielding subjects at correct locations with faithful photometric detail; overlapping instances are best separated where depth discontinuities match canvas boundaries and the dual LoRA streams limit cross-region leakage.
+We do not include Canvas-to-Image~\cite{dalva2025canvastoimage} in this comparison because its source code is not publicly available and it lacks disentangled dual-LoRA control over structure and appearance.
+Our ablation confirms that neither modality alone suffices, and that merging depth and canvas through a single LoRA stream causes cross-signal overwriting that degrades either geometric placement or textural fidelity.
 The lower CLIP-T score relative to layout-conditioned baselines reflects an expected tradeoff: canvas conditioning can shift generation toward reference fidelity at a minor cost to global text alignment, so spatial and DINO$_\text{refs}$ metrics are more diagnostic for reference-grounded composition.
 Residual failures appear when prompt-induced layouts imply ambiguous occlusion or implausible depth, which bounds geometric plausibility even though the depth prior corrects most floating and interpenetration artefacts relative to layout-only baselines.
 
@@ -469,7 +471,7 @@ Figure~\ref{fig:ablation} ablates the reference canvas and depth prior on an ind
 \label{fig:ablation}
 \end{figure}
 
-Removing the canvas forces the model to infer appearance solely from textual descriptions, resulting in plausible scene layouts but hallucinated object colours, textures, and identities. As illustrated by the bag and toy examples, the depth prior effectively constrains object layout and spatial positioning, yet fails to transfer the appearance characteristics specified by the reference images. Conversely, removing the depth signal preserves partial appearance transfer but degrades spatial reasoning, leading to incorrect object placement and occlusion relationships. For example, although the bat and bed remain recognizable, their arrangement is contextually implausible and fails to reflect realistic object interactions. In contrast, the full model leverages both canvas and depth cues from the same layout frame through decoupled LoRA streams, simultaneously preserving subject appearance and geometric consistency. These results demonstrate that canvas and depth provide complementary information, with appearance and structure jointly contributing to high-fidelity scene generation.
+Removing the canvas forces the model to infer appearance solely from textual descriptions, resulting in plausible scene layouts but hallucinated object colours, textures, and identities. As illustrated by the bag and toy examples, the depth prior effectively constrains object layout and spatial positioning, yet fails to transfer the appearance characteristics specified by the reference images. Conversely, removing the depth signal preserves partial appearance transfer but degrades spatial reasoning, leading to incorrect object placement and occlusion relationships. For example, although the bat and bed remain recognizable, their arrangement is contextually implausible and fails to reflect realistic object interactions. In contrast, the full model leverages both canvas and depth cues from the same layout frame through decoupled LoRA streams, simultaneously preserving subject appearance and geometric consistency. These results demonstrate that canvas and depth provide complementary information, with appearance and structure jointly contributing to high-fidelity scene generation; quantitative metrics for this ablation are reported in the supplementary material.
 
 \FloatBarrier
 \section{Conclusion}

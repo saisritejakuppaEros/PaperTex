@@ -1,0 +1,58 @@
+\begin{thebibliography}{1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{https://doi.org/#1}
+
+\bibitem{qwen3vl}
+Bai, S., Cai, Y., Chen, R., Chen, K., Chen, X., Cheng, Z., Deng, L., Ding, W.,
+  Gao, C., Ge, C., Ge, W., Guo, Z., Huang, Q., Huang, J., Huang, F., Hui, B.,
+  Jiang, S., Li, Z., Li, M., Li, M., Li, K., Lin, Z., Lin, J., Liu, X., Liu,
+  J., Liu, C., Liu, Y., Liu, D., Liu, S., Lu, D., Luo, R., Lv, C., Men, R.,
+  Meng, L., Ren, X., Ren, X., Song, S., Sun, Y., Tang, J., Tu, J., Wan, J.,
+  Wang, P., Wang, P., Wang, Q., Wang, Y., Xie, T., Xu, Y., Xu, H., Xu, J.,
+  Yang, Z., Yang, M., Yang, J., Yang, A., Yu, B., Zhang, F., Zhang, H., Zhang,
+  X., Zheng, B., Zhong, H., Zhou, J., Zhou, F., Zhou, J., Zhu, Y., Zhu, K.:
+  {Qwen3-VL} technical report. arXiv preprint arXiv:2511.21631  (2025)
+
+\bibitem{esser2024flux}
+Esser, P., Kulal, S., Blattmann, A., Entezari, R., M{\"u}ller, J., Lorenz, D.,
+  Zhang, A., Guo, D., Schuhmann, C., Rombach, R.: Scaling rectified flow
+  transformers for high-resolution image synthesis. In: ICML (2024)
+
+\bibitem{feng2024layoutgpt}
+Feng, W., Zhu, W., Fu, T.j., Jampani, V., Ganin, Y., Yang, X.E., Wang, W.Y.:
+  {LayoutGPT}: Compositional visual planning and generation with large language
+  models. In: Advances in Neural Information Processing Systems (2024)
+
+\bibitem{heusel2017fid}
+Heusel, M., Ramsauer, H., Unterthiner, T., Nessler, B., Hochreiter, S.: {GANs}
+  trained by a two time-scale update rule converge to a local {Nash}
+  equilibrium. In: NeurIPS (2017)
+
+\bibitem{li2022glip}
+Li, L.H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan,
+  L., Zhang, L., Hwang, J.N., Chang, K.W., Gao, J.: Grounded language-image
+  pre-training. In: CVPR. pp. 10965--10975 (2022)
+
+\bibitem{liu2023grounding}
+Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Li, C., Yang, J., Su,
+  H., Zhu, J., et~al.: Grounding {DINO}: Marrying {DINO} with grounded
+  pre-training for open-set object detection. arXiv preprint arXiv:2303.05499
+  (2023)
+
+\bibitem{srivastava2025layyourscene}
+Srivastava, D., Zhang, X., Wen, H., Wen, C., Tu, Z.: Lay-your-scene: Natural
+  scene layout generation with diffusion transformers. arXiv preprint
+  arXiv:2505.04718  (2025)
+
+\bibitem{xiang2025instanceassemble}
+Xiang, Q., Sun, S., Li, B., Song, D., Li, H., Chen, N., Tang, X., Hu, Y.,
+  Zhang, J.: {InstanceAssemble}: Layout-aware image generation via instance
+  assembling attention. arXiv preprint arXiv:2509.16691  (2025)
+
+\bibitem{zhang2025easycontrol}
+Zhang, Y., et~al.: {EasyControl}: Transfer {ControlNet} to video diffusion for
+  controllable generation and editing. In: Proceedings of the IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition (2025)
+
+\end{thebibliography}
