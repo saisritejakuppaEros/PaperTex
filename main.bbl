@@ -172,9 +172,9 @@ Zhang, L., Rao, A., Agrawala, M.: Adding conditional control to text-to-image
   Computer Vision. pp. 3836--3847 (2023)
 
 \bibitem{zhang2025easycontrol}
-Zhang, Y., et~al.: {EasyControl}: Transfer {ControlNet} to video diffusion for
-  controllable generation and editing. In: Proceedings of the IEEE/CVF
-  Conference on Computer Vision and Pattern Recognition (2025)
+Zhang, Y., Yuan, Y., Song, Y., Wang, H., Liu, J.: {EasyControl}: Adding
+  efficient and flexible control for diffusion transformer. In: Proceedings of
+  the IEEE/CVF International Conference on Computer Vision (2025)
 
 \bibitem{zheng2023layoutdiffusion}
 Zheng, G., Zhou, X., Li, X., Qi, Z., Shan, Y., Li, X.: {LayoutDiffusion}:

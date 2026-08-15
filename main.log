@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  15 AUG 2026 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  15 AUG 2026 22:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -908,7 +908,7 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 52.
 )
 ==> First Aid for cleveref.sty applied!
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 63
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 65
 .
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -920,24 +920,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 63.
-LaTeX Font Info:    ... okay on input line 63.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -973,59 +973,59 @@ e
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 63.
+Package hyperref Info: Link coloring OFF on input line 65.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 8
-7.
+9.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 8
-7.
+9.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-87.
+89.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-87.
+89.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 87.
+(Font)              <10> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 87.
+(Font)              <7> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 87.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
+(Font)              <5> on input line 89.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 87.
+(Font)              <9> on input line 89.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 87.
+(Font)              <6> on input line 89.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
-0.
+2.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1034,12 +1034,12 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 File: images/final_abstract_compressed.png Graphic file (type png)
 <use images/final_abstract_compressed.png>
 Package pdftex.def Info: images/final_abstract_compressed.png  used on input li
-ne 94.
+ne 96.
 (pdftex.def)             Requested size: 347.12354pt x 115.20903pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 95.
+(caption)                particular \caption on input line 97.
 See the caption package documentation for explanation.
 
 
@@ -1060,16 +1060,16 @@ d.png>]
 <images/final_method.jpg, id=128, 1540.75626pt x 1466.47874pt>
 File: images/final_method.jpg Graphic file (type jpg)
 <use images/final_method.jpg>
-Package pdftex.def Info: images/final_method.jpg  used on input line 149.
+Package pdftex.def Info: images/final_method.jpg  used on input line 151.
 (pdftex.def)             Requested size: 347.12354pt x 330.36864pt.
 
-Overfull \hbox (2.32173pt too wide) in paragraph at lines 154--159
+Overfull \hbox (2.32173pt too wide) in paragraph at lines 156--161
 \T1/lmr/m/n/10 keep-ing con-di-tion-ing cost fixed re-gard-less of ref-er-ence 
 count. Token-concatenation
  []
 
 
-Overfull \hbox (0.95943pt too wide) in paragraph at lines 154--159
+Overfull \hbox (0.95943pt too wide) in paragraph at lines 156--161
 \T1/lmr/m/n/10 fer-ence. We de-com-pose con-trol-lable gen-er-a-tion into two o
 r-thog-o-nal sub-problems:
  []
@@ -1081,95 +1081,83 @@ s/enc/dvips/lm/lm-mathex.enc}] [7]
 File: images/dataset_prep_compressed.png Graphic file (type png)
 <use images/dataset_prep_compressed.png>
 Package pdftex.def Info: images/dataset_prep_compressed.png  used on input line
- 269.
+ 271.
 (pdftex.def)             Requested size: 347.12354pt x 50.15509pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 270.
+(caption)                particular \caption on input line 272.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (2.91559pt too wide) in paragraph at lines 281--282
+Overfull \hbox (2.91559pt too wide) in paragraph at lines 283--284
 \T1/lmr/m/it/9 with [light-ing con-di-tion], [mood/style de-scrip-tors], and [p
 ho-to-re-al-is-tic/cinematic
  []
 
-[8 <./images/dataset_prep_compressed.png>] [9]
-Overfull \hbox (1.90666pt too wide) in paragraph at lines 312--313
+[8 <./images/dataset_prep_compressed.png>]
+Overfull \hbox (1.90666pt too wide) in paragraph at lines 314--315
 []\T1/lmr/m/n/10 Following LayoutSAM-Eval [[]29[]], we re-port \T1/lmr/m/it/10 
 region-wise \T1/lmr/m/n/10 qual-ity (Spa-tial, Color,
  []
 
 
-Overfull \hbox (6.22649pt too wide) in paragraph at lines 312--313
+Overfull \hbox (6.22649pt too wide) in paragraph at lines 314--315
 \T1/lmr/m/n/10 Tex-ture, Shape: place-ment ac-cu-racy and ap-pear-ance/structur
 e fi-delity) and \T1/lmr/m/it/10 global-
  []
 
+[9]
 <images/qual_compressed.png, id=262, 4028.04875pt x 2986.15625pt>
 File: images/qual_compressed.png Graphic file (type png)
 <use images/qual_compressed.png>
-Package pdftex.def Info: images/qual_compressed.png  used on input line 394.
+Package pdftex.def Info: images/qual_compressed.png  used on input line 396.
 (pdftex.def)             Requested size: 347.12354pt x 257.30565pt.
-[10] [11 <./images/qual_compressed.png>]
+ [10] [11 <./images/qual_compressed.png>]
 <images/multi_reference_images.jpg, id=292, 1528.71124pt x 1008.76875pt>
 File: images/multi_reference_images.jpg Graphic file (type jpg)
 <use images/multi_reference_images.jpg>
 Package pdftex.def Info: images/multi_reference_images.jpg  used on input line 
-428.
+427.
 (pdftex.def)             Requested size: 347.12354pt x 229.05656pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 429.
+(caption)                particular \caption on input line 428.
 See the caption package documentation for explanation.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12]
+[12 <./images/multi_reference_images.jpg>]
 <images/orientation_picture.jpg, id=301, 2050.66125pt x 668.4975pt>
 File: images/orientation_picture.jpg Graphic file (type jpg)
 <use images/orientation_picture.jpg>
-Package pdftex.def Info: images/orientation_picture.jpg  used on input line 439
+Package pdftex.def Info: images/orientation_picture.jpg  used on input line 438
 .
 (pdftex.def)             Requested size: 347.12354pt x 113.15344pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 440.
+(caption)                particular \caption on input line 439.
 See the caption package documentation for explanation.
 
-
-Underfull \vbox (badness 2213) has occurred while \output is active []
-
-
-Underfull \vbox (badness 2213) has occurred while \output is active []
-
- [13 <./images/multi_reference_images.jpg> <./images/orientation_picture.jpg>]
-<images/final_abalation.jpg, id=309, 1192.455pt x 426.59375pt>
+<images/final_abalation.jpg, id=302, 1192.455pt x 426.59375pt>
 File: images/final_abalation.jpg Graphic file (type jpg)
 <use images/final_abalation.jpg>
-Package pdftex.def Info: images/final_abalation.jpg  used on input line 447.
+Package pdftex.def Info: images/final_abalation.jpg  used on input line 446.
 (pdftex.def)             Requested size: 347.12354pt x 124.17767pt.
 
-
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 448.
+(caption)                particular \caption on input line 447.
 See the caption package documentation for explanation.
 
-[14 <./images/final_abalation.jpg>] (./main.bbl
+[13 <./images/orientation_picture.jpg> <./images/final_abalation.jpg>]
+(./main.bbl [14]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
 9.
 
 (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [15] [16])
-[17] (./main.aux)
+) [15]) [16]
+(./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1178,13 +1166,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 7E540FC7BFC23CAA5AAEAC4A86C3ADA7;436.
  ) 
 Here is how much of TeX's memory you used:
- 25896 strings out of 469006
- 488895 string characters out of 5454813
+ 25895 strings out of 469006
+ 488888 string characters out of 5454813
  916151 words of memory out of 5000000
  54027 multiletter control sequences out of 15000+600000
  708603 words of font info for 88 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 99i,14n,108p,1741b,658s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,108p,1737b,637s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
 sr/local/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/lo
 cal/texlive/2026basic/texmf-dist/fonts/type1/public/lm/lmbx6.pfb></usr/local/te
@@ -1205,10 +1193,10 @@ xlive/2026basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive
 asic/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2026basic/t
 exmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2026basic/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (17 pages, 21053048 bytes).
+Output written on main.pdf (16 pages, 21052720 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 104 named destinations out of 1000 (max. 500000)
+ 463 PDF objects out of 1000 (max. 8388607)
+ 379 compressed objects within 4 object streams
+ 103 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -67,7 +67,7 @@ Throughout, multiple visual references are composed under a single scene prompt 
 % ------------------------------------------------------------------
 
 We situate the spatial layout stage of RefCompose in the broader layout-generation literature by comparing against LayoutGPT~\cite{feng2024layoutgpt} and Lay-Your-Scene~\cite{srivastava2025layyourscene} on COCO-GR~\cite{feng2024layoutgpt} numerical and spatial reasoning splits.
-RefCompose first induces a coarse composition with a frozen text-to-image model (Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev}) and then extracts object boxes with Grounding DINO~\cite{liu2023grounding}.
+RefCompose first induces a coarse composition with a frozen text-to-image model (FLUX.2 Dev~\cite{blackforestlabs2026flux2dev}) and then extracts object boxes with Grounding DINO~\cite{liu2023grounding}.
 
 \paragraph{Metrics.}
 \textbf{L-FID} evaluates layout realism by rendering predicted layouts as colour-coded object maps and computing an FID-style distance to ground-truth layouts~\cite{heusel2017fid}; lower is better.
@@ -185,15 +185,15 @@ As noted in the main paper, RefCompose is trained on a mixture of a private movi
 \paragraph{Real data.}
 We curate ultra high-resolution movie frames at $1280 \times 720$ from a private dataset sourced from movies.
 Object references are canonicalized to neutral pose and lighting to reduce spurious correlations between scene context and subject appearance.
-The five-stage pipeline described in the main paper (Qwen3-VL~\cite{qwen3vl} enumeration, Grounding DINO~\cite{liu2023grounding} localisation, Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev} canonicalization, DINO~\cite{caron2021dino} filtering, and re-annotation) yields approximately $50{,}000$ samples from $1{,}000$ distinct films.
+The five-stage pipeline described in the main paper (Qwen3-VL~\cite{qwen3vl} enumeration, Grounding DINO~\cite{liu2023grounding} localisation, FLUX.2 Dev~\cite{blackforestlabs2026flux2dev} canonicalization, DINO~\cite{caron2021dino} filtering, and re-annotation) yields approximately $50{,}000$ samples from $1{,}000$ distinct films.
 
 \paragraph{Synthetic data.}
-We complement real cinematic frames with synthetically generated composites that expose the model to diverse spatial arrangements, lighting conditions, object interactions, and viewpoint configurations underrepresented in canonicalized movie crops.
+We complement real cinematic frames with synthetically generated composites that expose the model to diverse spatial arrangements, lighting conditions, object interactions, and viewpoint configurations underrepresented in canonicalized movie crops, partially compensating for cultural coverage gaps in text-to-image pretraining~\cite{kannen2024beyond}.
 The preparation pipeline is described below; together with real data, this mixture encourages generalisation beyond studio lighting and fixed poses without sacrificing photometric fidelity on in-domain cinematic content.
 
 \paragraph{Synthetic dataset preparation pipeline.}
 Our synthetic data pipeline consists of two stages: an upstream \emph{generation} stage and a downstream \emph{conditioning} stage.
-In the generation stage, we sample three independent external reference images per scene (a background, a face portrait, and an object photo), avoiding self-reconstruction collages by never cropping references from the ground-truth image itself.
+In the generation stage, we sample three independent external reference images per scene (a background, a face portrait from Celebrity~1000~\cite{tonyassi2024celebrity1000}, and an object photo), avoiding self-reconstruction collages by never cropping references from the ground-truth image itself.
 Each reference is described using Qwen3-VL~\cite{qwen3vl}, and the resulting descriptions are composed into a unified scene prompt spanning four scenario categories (normal, lighting, interaction, and position).
 These prompts, together with the reference images, condition a FLUX.2 model~\cite{blackforestlabs2025flux2} to synthesize the ground-truth target image at $1280 \times 720$ resolution.
 As a final verification step, we use Qwen3-VL~\cite{qwen3vl} as an automatic judge to check whether each sampled reference is faithfully present in the composed target image; samples in which references are missing or inconsistently rendered are discarded, while the remainder are retained for downstream conditioning.

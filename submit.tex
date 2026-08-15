@@ -1,0 +1,66 @@
+\documentclass[runningheads]{llncs}
+
+% ---------------------------------------------------------------
+% Include basic ECCV package
+
+% Fix ligature copy-paste / PDF text extraction
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+% TODO FINAL: Un-comment the following line for the camera-ready version
+\usepackage{eccv}
+
+\usepackage{lmodern}
+
+% ---------------------------------------------------------------
+% Other packages
+
+\usepackage{eccvabbrv}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{placeins}
+\setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\intextsep}{6pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
+\setlength{\belowcaptionskip}{2pt}
+
+\usepackage[accsupp]{axessibility}
+
+% ---------------------------------------------------------------
+% Hyperref package
+
+\usepackage{hyperref}
+
+% Support for ORCID icon
+\usepackage{orcidlink}
+
+% Notation (reference set $\mathcal{R}$ vs.\ LoRA rank $r$; depth map $D_s$ vs.\ scalar $\bar{d}_k$)
+\newcommand{\AdaptW}{\Delta W_s + \Delta W_a}
+
+\begin{document}
+
+% ===============================================================
+% Main paper
+% ===============================================================
+\input{main_body.tex}
+
+\bibliographystyle{splncs04}
+\bibliography{main}
+
+% ===============================================================
+% Supplementary material (appended after references)
+% ===============================================================
+\clearpage
+\setcounter{section}{0}
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thesection}{\Alph{section}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\FloatBarrier
+\input{supp_body.tex}
+\FloatBarrier
+
+\end{document}
