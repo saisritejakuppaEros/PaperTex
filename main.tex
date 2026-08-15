@@ -127,7 +127,7 @@ Recent reference-based generation methods scale to multiple subjects, addressing
 
 \paragraph{Reference-guided image synthesis.}
 Conditioning generation on reference images has a long history in diffusion literature~\cite{zhang2023adding,xverse2024,xiang2025instanceassemble,he2025dreamo,tang2024creatilayout,kumari2023multiconcept,ruiz2023dreambooth}.
-IP-Adapter~\cite{ye2023ip} decouples image and text conditioning via cross-attention, enabling subject-driven generation from a single reference, and follow-up methods share a common structure of encoding each reference independently and injecting it as an additional token sequence~\cite{wang2024instantid, li2024photomaker, ruiz2023dreambooth, kumari2023multiconcept}, so token cost grows with reference count, an issue made explicit by architectures that concatenate multiple VAE encodings, which overflow GPU memory beyond a small number of references~\cite{ye2023ip, wang2024msdiffusion, wu2025uno, xverse2024, xiao2024omnigen, omnigen2_2025}.
+IP-Adapter~\cite{ye2023ip} couples image and text conditioning via cross-attention, enabling subject-driven generation from a single reference, and follow-up methods share a common structure of encoding each reference independently and injecting it as an additional token sequence~\cite{wang2024instantid, li2024photomaker, ruiz2023dreambooth, kumari2023multiconcept}, so token cost grows with reference count, an issue made explicit by architectures that concatenate multiple VAE encodings, which overflow GPU memory beyond a small number of references~\cite{ye2023ip, wang2024msdiffusion, wu2025uno, xverse2024, xiao2024omnigen, omnigen2_2025}.
 Our canvas-based representation avoids this by keeping token count constant regardless of reference count.
 
 \paragraph{Layout-conditioned generation.}
@@ -175,7 +175,7 @@ $\mathcal{F}_\theta$ is the frozen diffusion transformer under $T{=}40$ flow-mat
 Rather than invoking an external layout model or LLM, we derive spatial structure from the frozen diffusion transformer $\mathcal{F}_\theta$ itself.
 We restrict $\mathbf{p}$ to compositional and relational language (scene type, camera framing, and inter-subject placement; \emph{e.g.}, ``a person on the left, a product on the right'') and delegate photometric identity to the reference canvas (Section~\ref{sec:canvas}).
 This splits conditioning into orthogonal channels: $\mathbf{p}$ specifies \emph{where} subjects belong; the canvas specifies \emph{what} they look like.
-A single text-conditioned forward pass yields a coarse layout image:
+Text-conditioned flow-matching over $T{=}40$ denoising steps yields a coarse layout image:
 \begin{equation}
   L = \mathcal{F}_\theta(\mathbf{p}) \in \mathbb{R}^{H \times W \times 3}.
 \end{equation}
@@ -260,11 +260,18 @@ denotes the learned velocity at step~$t$. Output via VAE decoding:
   \hat{I} = \mathcal{E}^{-1}(\hat{z}_0) \in \mathbb{R}^{H \times W \times 3}.
 \end{equation}
 
+For training, let $I$ denote the ground-truth target image and $z_0 = \mathcal{E}(I)$ its latent encoding. We sample noise $z_1 \sim \mathcal{N}(0, I)$, timestep $t \sim \mathcal{U}[0, 1]$, and form the interpolated latent $z_t = (1 - t) z_0 + t z_1$. The LoRA adapters are trained by regressing $v_\theta$ onto the constant rectified-flow velocity $z_1 - z_0$, i.e.\ by minimising the conditional flow-matching objective
+\begin{equation}
+  \mathcal{L}_{\text{FM}} = \mathbb{E}_{t,\, z_0,\, z_1} \left[ \left\lVert v_\theta\bigl(z_t, t, \mathbf{p}, z_{\mathcal{C}}, z_{D_s}; \AdaptW\bigr) - (z_1 - z_0) \right\rVert_2^2 \right],
+\end{equation}
+where only $\Delta W_s + \Delta W_a$ is updated while $\mathcal{F}_\theta$ remains frozen. At inference, sampling starts from $z_T \sim \mathcal{N}(0, I)$ and integrates $v_\theta$ over $T{=}40$ steps to obtain $\hat{z}_0$ and decoded output $\hat{I}$.
+
 \section{Experiments}
 
 \subsection{Dataset Preparation}
+\label{sec:dataset-prep}
 
-\textbf{Dataset Construction.} We train on ultra high resolution cinematic imagery at $1280 \times 720$ resolution, drawn from a private dataset sourced from movies, where most object references are canonicalized to a neutral pose. We complement this with a synthetic dataset generated using Flux~2.0~\cite{blackforestlabs2025flux2}, providing diverse object positions and orientations so the model learns pose variation while the real dataset supplies richer textures; further details are provided in the supplementary material. Our pipeline proceeds in five stages. First, each movie shot is passed through Qwen3-VL~\cite{qwen3vl} to enumerate all objects present in the scene (actors, props, and landmarks). Second, Grounding DINO~\cite{liu2023grounding} takes these object descriptions as text prompts to detect corresponding bounding boxes, retaining only shots yielding more than four detections to ensure compositional density. Third, each detected crop is fed to Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev} to synthesize a neutral-pose, neutral-lighting canonicalization, removing scene-specific pose and illumination variation. Fourth, we filter canonicalized outputs against their original crops using DINO~\cite{caron2021dino} cosine similarity, retaining a sample only if similarity exceeds $0.90$. Finally, retained shots are annotated again with Qwen3-VL, producing both scene-level and crop-level descriptions (Figure~\ref{fig:data_pipeline}). This pipeline yields approximately $50{,}000$ samples drawn from $1{,}000$ distinct films, together with additional synthetic samples.
+\textbf{Dataset Construction.} We train on ultra high resolution cinematic imagery at $1280 \times 720$ resolution, drawn from a private dataset sourced from movies, where most object references are canonicalized to a neutral pose. We complement this with a synthetic dataset generated using Flux~2.0~\cite{blackforestlabs2025flux2}, providing diverse object positions and orientations so the model learns pose variation while the real dataset supplies richer textures; further details are provided in the supplementary material. Our pipeline proceeds in five stages. First, each movie shot is passed through Qwen3-VL~\cite{qwen3vl} to enumerate all objects present in the scene (actors, props, and landmarks). Second, Grounding DINO~\cite{liu2023grounding} takes these object descriptions as text prompts to detect corresponding bounding boxes, retaining only shots yielding more than four detections to ensure compositional density. Third, each detected crop is fed to Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev} to synthesize a neutral-pose, neutral-lighting canonicalization, removing scene-specific pose and illumination variation. Fourth, we filter canonicalized outputs against their original crops using DINO~\cite{caron2021dino} cosine similarity, retaining a sample only if similarity exceeds $0.90$. Finally, retained shots are annotated again with Qwen3-VL, producing both scene-level and crop-level descriptions (Figure~\ref{fig:data_pipeline}). This pipeline yields approximately $50{,}000$ samples drawn from $1{,}000$ distinct films, together with additional synthetic samples. The final training corpus is evenly split between private cinematic and synthetic samples (50\%/50\%).
 \begin{center}
   \includegraphics[width=\linewidth]{images/dataset_prep_compressed.png}
   \captionof{figure}{Overview of the dataset preparation pipeline. Objects are identified using Qwen3-VL, localized with Grounding DINO, canonicalized to a neutral pose and lighting using Flux~2.0 Dev~\cite{blackforestlabs2026flux2dev}, filtered via DINO~\cite{caron2021dino} similarity, and finally annotated by Qwen3-VL.}
@@ -298,8 +305,16 @@ Training runs for $50{,}000$ iterations at $1280 \times 720$ in three stages whi
 We evaluate on the \emph{Dense Layout} test split of InstanceAssemble~\cite{xiang2025instanceassemble}: $5{,}000$ held-out composites ($\sim$8.3 annotated objects/image across people, props, environments, and product-like assets) with ground-truth boxes and per-instance text descriptions.
 All metrics in Tables~\ref{tab:memory} and~\ref{tab:quant_results} are computed on this split unless stated otherwise.
 
+
 \paragraph{Evaluation protocol and GPU memory.}
-All methods run on a single NVIDIA H100 at \(1280 \times 720\) using the prompt template from Section~\ref{sec:layout-gen}. We select five object crops per image from the largest ground-truth boxes by area, canonicalize each via Flux~2.0 Dev (neutral pose/lighting), and generate scene prompts with Qwen3-VL~\cite{qwen3vl}, ensuring all methods receive identical textual and visual information. CreatiLayout and InstanceAssemble~\cite{xiang2025instanceassemble} receive only Dense Layout boxes and text; UNO~\cite{wu2025uno}, XVerse~\cite{xverse2024}, and RefCompose additionally receive the canonicalized reference crops. Among all baselines, UNO and XVerse are the most architecturally compatible with RefCompose and achieve the strongest reference-image performance, so we benchmark primarily against them. Region-wise metrics use object localizations from Grounding DINO~\cite{liu2023grounding}. As Table~\ref{tab:memory} shows, token-based methods grow in memory with reference count and go out-of-memory at \(N=6\), while RefCompose stays approximately constant via canvas compression. Baselines are thus reported at \(N=5\), with Table~\ref{tab:quant_results} also reporting RefCompose at \(N>5\) to demonstrate scalability without added memory cost.
+All methods run on a single NVIDIA H100 at \(1280 \times 720\) using the prompt template from Section~\ref{sec:layout-gen}. For each image, we select five object crops from the largest ground-truth boxes by area and canonicalize them via Flux~2.0 Dev to a neutral pose, viewpoint, and lighting, consistent with the training data construction procedure (Section~\ref{sec:dataset-prep}); identity must therefore be reconstructed from this re-rendered appearance rather than copied from the original target pixels. Scene prompts are generated with Qwen3-VL~\cite{qwen3vl}, so that all methods receive identical textual and visual information. CreatiLayout and InstanceAssemble~\cite{xiang2025instanceassemble} receive only Dense Layout boxes and text, while UNO~\cite{wu2025uno}, XVerse~\cite{xverse2024}, and RefCompose additionally receive the canonicalized reference crops. Among all baselines, UNO and XVerse are the most architecturally compatible with RefCompose and achieve the strongest reference-image performance, so we benchmark primarily against them. Region-wise metrics use object localizations from Grounding DINO~\cite{liu2023grounding}.
+
+As Table~\ref{tab:memory} shows, token-based methods scale in memory with reference count and go out-of-memory at \(N=6\), whereas RefCompose remains approximately constant via canvas compression. Baselines are therefore reported at \(N{=}5\), while Table~\ref{tab:quant_results} additionally reports RefCompose at \(N{>}5\) to demonstrate scalability without added memory cost. In this \(N{>}5\) setting, the reference count follows the per-image annotation count from Dense Layout (capped at \(N=15\)); Table~\ref{tab:quant_results} thus averages over image-varying \(N\) for RefCompose, whereas baseline rows use a uniform cap of \(N{=}5\).
+
+
+
+
+
 
 Following LayoutSAM-Eval~\cite{xiang2025instanceassemble}, we report \emph{region-wise} quality (Spatial, Color, Texture, Shape: placement accuracy and appearance/structure fidelity) and \emph{global-wise} quality (PICK~\cite{kirstain2023pickapic}, CLIP-T~\cite{radford2021clip} for image-text alignment; DINO~\cite{caron2021dino} for composition similarity; DINO$_{\text{refs}}$ for reference consistency; CLIP-I~\cite{radford2021clip} for image-level similarity). Higher is better throughout.
 
@@ -434,17 +449,20 @@ Despite identical reference inputs, the generated results follow the geometry an
 \end{center}
 
 
+
+\begin{center}
+  \includegraphics[width=\linewidth]{images/final_abalation.jpg}
+  \captionof{figure}{Ablation study on an indoor multi-object scene. Removing either the reference canvas or depth prior degrades identity preservation or geometric consistency, while the full model preserves object appearance and spatial layout by leveraging both conditioning signals.}
+  \label{fig:ablation}
+\end{center}
+
+  
 \subsection{Ablation Study}
 \label{sec:ablation}
 
-Figure~\ref{fig:ablation} ablates the reference canvas and depth prior on an indoor multi-object scene (reference crops shown below). Removing the canvas forces the model to infer appearance solely from textual descriptions, resulting in plausible scene layouts but hallucinated object colours, textures, and identities. As illustrated by the bag and toy examples, the depth prior effectively constrains object layout and spatial positioning, yet fails to transfer the appearance characteristics specified by the reference images. Conversely, removing the depth signal preserves partial appearance transfer but degrades spatial reasoning, leading to incorrect object placement and occlusion relationships. For example, although the bat and bed remain recognizable, their arrangement is contextually implausible and fails to reflect realistic object interactions. In contrast, the full model leverages both canvas and depth cues from the same layout frame through decoupled LoRA streams, simultaneously preserving subject appearance and geometric consistency. These results demonstrate that canvas and depth provide complementary information, with appearance and structure jointly contributing to high-fidelity scene generation; quantitative metrics for this ablation are reported in the supplementary material.
+Figure~\ref{fig:ablation} ablates the reference canvas and depth prior (reference crops shown above). Removing the canvas yields plausible layouts but hallucinated colours, textures, and identities; removing depth retains partial appearance yet degrades placement and occlusion (e.g., the bat and bed remain recognizable but are arranged implausibly). The full model preserves both appearance and geometry via decoupled LoRA streams; quantitative metrics are reported in the supplementary material.
  
-\begin{figure}[!tb]
-\centering
-\includegraphics[width=\linewidth]{images/final_abalation.jpg}
-\caption{Ablation study on an indoor multi-object scene. Removing either the reference canvas or depth prior degrades identity preservation or geometric consistency, while the full model preserves object appearance and spatial layout by leveraging both conditioning signals.}
-\label{fig:ablation}
-\end{figure}
+
 
 
 \FloatBarrier
