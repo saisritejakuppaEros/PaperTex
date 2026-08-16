@@ -37,10 +37,10 @@ Dalva, Y., Qian, G.G., Goldenberg, M., Chen, T.S., Aberman, K., Tulyakov, S.,
   Yanardag, P., Wang, K.C.J.: Canvas-to-image: Compositional image generation
   with multimodal controls (2025), \url{https://arxiv.org/abs/2511.21691}
 
-\bibitem{feng2024layoutgpt}
-Feng, W., Zhu, W., Fu, T.j., Jampani, V., Ganin, Y., Yang, X.E., Wang, W.Y.:
-  {LayoutGPT}: Compositional visual planning and generation with large language
-  models. In: Advances in Neural Information Processing Systems (2024)
+\bibitem{feng2023layoutgpt}
+Feng, W., Zhu, W., Fu, T.j., Jampani, V., Akula, A., He, X., Basu, S., Wang,
+  X.E., Wang, W.Y.: {LayoutGPT}: Compositional visual planning and generation
+  with large language models. arXiv preprint arXiv:2305.15393  (2023)
 
 \bibitem{he2025dreamo}
 He, Y., et~al.: {DreamO}: Unified image customization with conditions
