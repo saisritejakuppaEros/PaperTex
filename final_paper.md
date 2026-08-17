@@ -100,8 +100,8 @@ ECCV 2026 Submission #8 3
 093 at specified locations via gated self-attention for object-level placement. These 093
 094 add pipeline complexity; we find an explicit layout component unnecessary, since 094
 095 state-of-the-art DiTs can use a generic composition prompt for coarse layout suf- 095
-096 ficient for canvas placement and depth extraction, though comparison against 096
-097 specialized layout generators remains future work. 097
+096 ficient for canvas placement and depth extraction; a comparison against 096
+097 specialized layout generators on COCO-GR is provided in the supplementary 097
 098 Depth, structural, and LoRA-based conditioning. ControlNet [32] showed pre- 098
 099 computed spatial signals (depth, canny edges, pose) provide strong structural 099
 100 guidance for UNet-based diffusion via a trainable parallel encoder, though adapt- 100

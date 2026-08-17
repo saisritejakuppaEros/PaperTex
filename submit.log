@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  15 AUG 2026 22:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.5.30)  16 AUG 2026 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1098,7 +1098,7 @@ ho-to-re-al-is-tic/cinematic
 
 [8 <./images/dataset_prep_compressed.png>]
 Overfull \hbox (1.90666pt too wide) in paragraph at lines 246--247
-[]\T1/lmr/m/n/10 Following LayoutSAM-Eval [[]35[]], we re-port \T1/lmr/m/it/10 
+[]\T1/lmr/m/n/10 Following LayoutSAM-Eval [[]37[]], we re-port \T1/lmr/m/it/10 
 region-wise \T1/lmr/m/n/10 qual-ity (Spa-tial, Color,
  []
 
@@ -1151,14 +1151,13 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [13 <./images/orientation_picture.jpg> <./images/final_abalation.jpg>])
-(./submit.bbl [14]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-9.
-
-(/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
+(./submit.bbl
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+.
+ (/usr/local/texlive/2026basic/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [15] [16])
-[17] (./supp_body.tex
+)
+[14] [15] [16]) [17] (./supp_body.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\\' on input line 17.
@@ -1204,10 +1203,10 @@ Package rerunfilecheck Info: File `submit.out' has not changed.
 (rerunfilecheck)             Checksum: 5DC15B6A00CBF5DF3C890C8E8FBAA65D;990.
  ) 
 Here is how much of TeX's memory you used:
- 25958 strings out of 469006
- 489927 string characters out of 5454813
+ 25962 strings out of 469006
+ 490023 string characters out of 5454813
  916155 words of memory out of 5000000
- 54058 multiletter control sequences out of 15000+600000
+ 54060 multiletter control sequences out of 15000+600000
  708603 words of font info for 88 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  99i,14n,108p,1761b,637s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1231,10 +1230,10 @@ xlive/2026basic/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive
 asic/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2026basic/t
 exmf-dist/fonts/type1/public/lm/lmtt9.pfb></usr/local/texlive/2026basic/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on submit.pdf (21 pages, 21100101 bytes).
+Output written on submit.pdf (21 pages, 21102803 bytes).
 PDF statistics:
- 565 PDF objects out of 1000 (max. 8388607)
- 472 compressed objects within 5 object streams
- 129 named destinations out of 1000 (max. 500000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 478 compressed objects within 5 object streams
+ 131 named destinations out of 1000 (max. 500000)
  64 words of extra memory for PDF output out of 10000 (max. 10000000)
 

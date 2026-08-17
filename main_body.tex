@@ -59,7 +59,7 @@ Our canvas-based representation avoids this by keeping token count constant rega
 
 \paragraph{Layout-conditioned generation.}
 Spatial control has been pursued via layout priors of various kinds~\cite{zhang2023adding, li2023gligen, feng2023layoutgpt, lian2023layoutdiffusion, zheng2023layoutdiffusion, tang2024creatilayout, xiang2025instanceassemble}: LayoutGPT~\cite{feng2023layoutgpt} uses an LLM to generate bounding boxes for conditioning, LayoutDiffusion~\cite{zheng2023layoutdiffusion} models spatial arrangement distributions directly, and GLIGEN~\cite{li2023gligen} injects grounding tokens at specified locations via gated self-attention for object-level placement.
-These add pipeline complexity; we find an explicit layout component unnecessary, since state-of-the-art DiTs can use a generic composition prompt for coarse layout sufficient for canvas placement and depth extraction, though comparison against specialized layout generators remains future work.
+These add pipeline complexity; we find an explicit layout component unnecessary, since state-of-the-art DiTs can use a generic composition prompt for coarse layout sufficient for canvas placement and depth extraction; a comparison against specialized layout generators on COCO-GR is provided in the supplementary material.
 
 \paragraph{Depth, structural, and LoRA-based conditioning.}
 ControlNet~\cite{zhang2023adding} showed pre-computed spatial signals (depth, canny edges, pose) provide strong structural guidance for UNet-based diffusion via a trainable parallel encoder, though adapting this to DiTs is non-trivial given the architectural shift from UNet.
